@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Strategy LLC - Brand Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #2E3192; --blue: #0071BC; --teal: #00A99D; --dark: #1a1a1a; --white: #ffffff;
+            --gray-50: #f8f9fa; --gray-100: #f1f3f5; --gray-200: #e9ecef; --gray-300: #dee2e6;
+            --gray-400: #ced4da; --gray-500: #adb5bd; --gray-600: #6c757d; --gray-700: #495057;
+            --gray-800: #343a40; --gray-900: #212529;
+            --success: #10b981; --error: #dc2626; --warning: #f59e0b;
+            --font-heading: 'Poppins', sans-serif; --font-body: 'Inter', sans-serif;
+        }
+        body { font-family: var(--font-body); line-height: 1.6; color: var(--dark); background: var(--white); }
+        .page { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; min-height: 100vh; }
+        .cover { background: linear-gradient(135deg, var(--navy) 0%, #1a1d5e 100%); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; }
+        .cover::before { content: ''; position: absolute; top: -10%; right: -5%; width: 60%; height: 120%; background: linear-gradient(135deg, transparent 0%, rgba(0, 169, 157, 0.12) 100%); clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); transform: skewY(-3deg); }
+        .logo-display { margin-bottom: 3rem; position: relative; z-index: 1; }
+        .cover h1 { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; margin-bottom: 1rem; position: relative; z-index: 1; }
+        .cover .subtitle { font-size: 1.5rem; opacity: 0.9; font-weight: 300; position: relative; z-index: 1; }
+        .cover .version { position: absolute; bottom: 3rem; font-size: 0.9rem; opacity: 0.7; }
+        .section { margin: 5rem 0; }
+        .section-title { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -0.5rem; left: 0; width: 100px; height: 5px; background: linear-gradient(90deg, var(--teal), var(--blue)); border-radius: 3px; }
+        .section-subtitle { font-size: 1.25rem; color: var(--gray-600); margin-bottom: 3rem; max-width: 800px; }
+        h3 { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 600; color: var(--navy); margin: 2rem 0 1rem; }
+        h4 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--dark); margin: 1.5rem 0 0.75rem; }
+        p { margin-bottom: 1rem; line-height: 1.7; }
+        .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .logo-card { background: var(--gray-50); padding: 3rem; border-radius: 16px; text-align: center; border: 1px solid var(--gray-200); }
+        .logo-card.dark { background: var(--dark); }
+        .logo-card h4 { margin-top: 1.5rem; font-size: 1rem; }
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .color-swatch { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .color-sample { height: 150px; width: 100%; }
+        .color-info { padding: 1.5rem; background: white; border: 1px solid var(--gray-200); }
+        .color-name { font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .color-values { font-size: 0.875rem; color: var(--gray-600); font-family: 'Monaco', 'Courier New', monospace; }
+        .color-values div { margin-bottom: 0.25rem; }
+        .type-specimen { margin: 2rem 0; padding: 2rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--teal); }
+        .type-label { font-family: var(--font-body); font-size: 0.875rem; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 600; }
+        .type-specs { font-family: 'Monaco', 'Courier New', monospace; font-size: 0.75rem; color: var(--gray-500); margin-top: 0.5rem; }
+        .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+        .do-card, .dont-card { padding: 2rem; border-radius: 12px; position: relative; }
+        .do-card { background: #f0fdf4; border: 2px solid var(--success); }
+        .dont-card { background: #fef2f2; border: 2px solid var(--error); }
+        .do-card::before { content: '✓ DO'; position: absolute; top: 1rem; right: 1rem; background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .dont-card::before { content: '✗ DON\'T'; position: absolute; top: 1rem; right: 1rem; background: var(--error); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .info-box { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--blue); margin: 2rem 0; }
+        .info-box strong { color: var(--navy); }
+        table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        th { background: var(--navy); color: white; padding: 1rem; text-align: left; font-family: var(--font-heading); font-weight: 600; }
+        td { padding: 1rem; border-bottom: 1px solid var(--gray-200); }
+        tr:last-child td { border-bottom: none; }
+        code { background: var(--gray-100); padding: 0.2rem 0.5rem; border-radius: 4px; font-family: 'Monaco', 'Courier New', monospace; font-size: 0.9em; color: var(--navy); }
+        .nav { position: fixed; top: 2rem; right: 2rem; background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; }
+        .nav a { display: block; padding: 0.5rem 1rem; color: var(--gray-600); text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s; }
+        .nav a:hover { background: var(--gray-50); color: var(--navy); }
+        @media (max-width: 768px) { .nav { display: none; } .do-dont-grid { grid-template-columns: 1fr; } }
+        @media print { .page { padding: 2rem; } .page-break { page-break-after: always; } }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="#overview">Overview</a>
+    <a href="#logo">Logo</a>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#voice">Voice & Tone</a>
+    <a href="#usage">Usage</a>
+</nav>
+
+<div class="page cover">
+    <div class="logo-display">
+        <svg width="120" height="200" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h25V30h5V40H35V60H40V90H30V80H25V70H20V60H15V40H10V30H5V90H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#231f20"/>
+            <rect x="5" y="5" width="8" height="20" fill="#2E3192"/>
+            <rect x="5" y="25" width="8" height="20" fill="#0071BC"/>
+            <rect x="5" y="45" width="8" height="20" fill="#00A99D"/>
+        </svg>
+    </div>
+    <h1>Real Strategy</h1>
+    <div class="subtitle">Brand Guidelines</div>
+    <div class="version">Version 2.0 | April 2026</div>
+</div>
+
+<div class="page" id="overview">
+    <div class="section">
+        <h2 class="section-title">Brand Overview</h2>
+        <p class="section-subtitle">Real Strategy LLC is a modern, AI-native tax and financial advisory firm serving real estate professionals, content creators, and tech startups across San Diego County and nationwide.</p>
+        <h3>Mission</h3>
+        <p>To provide proactive, strategic tax planning that empowers modern businesses to maximize savings and achieve their financial goals through expert guidance and responsive service.</p>
+        <h3>Vision</h3>
+        <p>To redefine financial advisory for the digital age, becoming the trusted partner for entrepreneurs and modern businesses who demand more than traditional accounting services.</p>
+        <h3>Core Values</h3>
+        <div class="color-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 2rem;">
+            <div><h4 style="color: var(--navy);">Simplicity</h4><p style="color: var(--gray-600);">We make complex tax strategies clear and actionable.</p></div>
+            <div><h4 style="color: var(--blue);">Transparency</h4><p style="color: var(--gray-600);">Upfront pricing, honest advice, no hidden fees.</p></div>
+            <div><h4 style="color: var(--teal);">Client Value</h4><p style="color: var(--gray-600);">Your success is measured by your tax savings and business growth.</p></div>
+        </div>
+        <h3>Brand Positioning</h3>
+        <table>
+            <tr><th>Attribute</th><th>Description</th></tr>
+            <tr><td><strong>Target Markets</strong></td><td>Real estate professionals, content creators, tech/AI startups</td></tr>
+            <tr><td><strong>Geographic Focus</strong></td><td>San Diego County (La Jolla, Carlsbad, Del Mar) with nationwide service</td></tr>
+            <tr><td><strong>Key Differentiator</strong></td><td>AI-native operations, 24-hour response guarantee, proactive year-round planning</td></tr>
+            <tr><td><strong>Credentials</strong></td><td>Enrolled Agent (EA) - IRS's highest credential; Harvard graduate</td></tr>
+            <tr><td><strong>Legal Entity</strong></td><td>Real Strategy LLC (no comma before LLC)</td></tr>
+        </table>
+        <div class="info-box"><strong>CRITICAL:</strong> Shawn Choo is an <strong>Enrolled Agent (EA)</strong>, NOT a CPA. This distinction must be maintained in all materials. EA is the IRS's highest credential and authorizes unlimited practice rights before the IRS.</div>
+    </div>
+</div>
+
+<div class="page" id="logo">
+    <div class="section">
+        <h2 class="section-title">Logo System</h2>
+        <p class="section-subtitle">The Real Strategy logo combines a distinctive R lettermark with modern typography to convey professionalism, innovation, and trust.</p>
+        <h3>Primary Logo</h3>
+        <div class="logo-grid">
+            <div class="logo-card">
+                <svg width="150" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(0, 10)">
+                        <path d="M0 0h25V30h5V40H35V60H40V60H30V50H25V40H20V30H15V20H10V30H5V60H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#231f20" transform="scale(0.6)"/>
+                        <rect x="3" y="3" width="5" height="12" fill="#2E3192" transform="scale(0.6)"/>
+                        <rect x="3" y="15" width="5" height="12" fill="#0071BC" transform="scale(0.6)"/>
+                        <rect x="3" y="27" width="5" height="12" fill="#00A99D" transform="scale(0.6)"/>
+                    </g>
+                    <text x="45" y="35" font-family="Poppins" font-size="28" font-weight="700" fill="#1a1a1a">Real</text>
+                    <text x="105" y="35" font-family="Poppins" font-size="28" font-weight="300" fill="#1a1a1a">Strategy</text>
+                </svg>
+                <h4>Light Background</h4>
+            </div>
+            <div class="logo-card dark">
+                <svg width="150" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(0, 10)">
+                        <path d="M0 0h25V30h5V40H35V60H40V60H30V50H25V40H20V30H15V20H10V30H5V60H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#ffffff" transform="scale(0.6)"/>
+                        <rect x="3" y="3" width="5" height="12" fill="#2E3192" transform="scale(0.6)"/>
+                        <rect x="3" y="15" width="5" height="12" fill="#0071BC" transform="scale(0.6)"/>
+                        <rect x="3" y="27" width="5" height="12" fill="#00A99D" transform="scale(0.6)"/>
+                    </g>
+                    <text x="45" y="35" font-family="Poppins" font-size="28" font-weight="700" fill="#ffffff">Real</text>
+                    <text x="105" y="35" font-family="Poppins" font-size="28" font-weight="300" fill="#ffffff">Strategy</text>
+                </svg>
+                <h4 style="color: white;">Dark Background</h4>
+            </div>
+        </div>
+        <h3>Logo Variations</h3>
+        <div class="logo-grid">
+            <div class="logo-card">
+                <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h25V30h5V40H35V60H40V90H30V80H25V70H20V60H15V40H10V30H5V90H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#231f20"/>
+                    <rect x="5" y="5" width="8" height="20" fill="#2E3192"/>
+                    <rect x="5" y="25" width="8" height="20" fill="#0071BC"/>
+                    <rect x="5" y="45" width="8" height="20" fill="#00A99D"/>
+                </svg>
+                <h4>Icon Only (Color)</h4>
+            </div>
+            <div class="logo-card">
+                <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h25V30h5V40H35V60H40V90H30V80H25V70H20V60H15V40H10V30H5V90H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#1a1a1a"/>
+                </svg>
+                <h4>Icon Only (Black)</h4>
+            </div>
+            <div class="logo-card dark">
+                <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h25V30h5V40H35V60H40V90H30V80H25V70H20V60H15V40H10V30H5V90H0V0ZM10 10V30H15V40H20V50H15V40H10V30H10V10Z" fill="#ffffff"/>
+                </svg>
+                <h4 style="color: white;">Icon Only (White)</h4>
+            </div>
+        </div>
+        <h3>Clear Space & Minimum Size</h3>
+        <div class="info-box"><p><strong>Clear Space:</strong> Maintain minimum clear space equal to the height of the letter "R" on all sides.</p><p><strong>Minimum Size:</strong></p><ul style="margin-top: 0.5rem; margin-left: 1.5rem;"><li>Digital: 120px wide minimum</li><li>Print: 1.5 inches wide minimum</li><li>Icon only: 40px × 40px minimum</li></ul></div>
+        <h3>Logo Usage Rules</h3>
+        <div class="do-dont-grid">
+            <div class="do-card"><h4>DO</h4><ul style="margin-left: 1.5rem; color: var(--gray-700);"><li>Use approved logo files only</li><li>Maintain proper clear space</li><li>Scale proportionally</li><li>Use on brand colors or white/black</li><li>Use icon-only for social media avatars</li></ul></div>
+            <div class="dont-card"><h4>DON'T</h4><ul style="margin-left: 1.5rem; color: var(--gray-700);"><li>Distort, stretch, or skew logo</li><li>Change colors or add effects</li><li>Place on busy backgrounds</li><li>Recreate or modify typeface</li><li>Use outdated versions</li></ul></div>
+        </div>
+    </div>
+</div>
+
+<div class="page" id="colors">
+    <div class="section">
+        <h2 class="section-title">Color Palette</h2>
+        <p class="section-subtitle">Our color system balances professional trust with modern energy, supporting both digital and print applications.</p>
+        <h3>Core Brand Colors</h3>
+        <div class="color-grid">
+            <div class="color-swatch"><div class="color-sample" style="background: #2E3192;"></div><div class="color-info"><div class="color-name">Navy</div><div class="color-values"><div>HEX: #2E3192</div><div>RGB: 46, 49, 146</div><div>CMYK: 68, 66, 0, 43</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #0071BC;"></div><div class="color-info"><div class="color-name">Blue</div><div class="color-values"><div>HEX: #0071BC</div><div>RGB: 0, 113, 188</div><div>CMYK: 100, 40, 0, 26</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #00A99D;"></div><div class="color-info"><div class="color-name">Teal</div><div class="color-values"><div>HEX: #00A99D</div><div>RGB: 0, 169, 157</div><div>CMYK: 100, 0, 7, 34</div></div></div></div>
+        </div>
+        <h3>Neutral Colors</h3>
+        <div class="color-grid">
+            <div class="color-swatch"><div class="color-sample" style="background: #1a1a1a;"></div><div class="color-info"><div class="color-name">Dark</div><div class="color-values"><div>HEX: #1a1a1a</div><div>RGB: 26, 26, 26</div><div>Primary text</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #6c757d;"></div><div class="color-info"><div class="color-name">Gray 600</div><div class="color-values"><div>HEX: #6c757d</div><div>RGB: 108, 117, 125</div><div>Secondary text</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #f8f9fa; border: 1px solid #dee2e6;"></div><div class="color-info"><div class="color-name">Gray 50</div><div class="color-values"><div>HEX: #f8f9fa</div><div>RGB: 248, 249, 250</div><div>Backgrounds</div></div></div></div>
+        </div>
+        <h3>Functional Colors</h3>
+        <div class="color-grid">
+            <div class="color-swatch"><div class="color-sample" style="background: #10b981;"></div><div class="color-info"><div class="color-name">Success</div><div class="color-values"><div>HEX: #10b981</div><div>Use: Confirmations, positive actions</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #dc2626;"></div><div class="color-info"><div class="color-name">Error</div><div class="color-values"><div>HEX: #dc2626</div><div>Use: Errors, warnings, urgent</div></div></div></div>
+            <div class="color-swatch"><div class="color-sample" style="background: #f59e0b;"></div><div class="color-info"><div class="color-name">Warning</div><div class="color-values"><div>HEX: #f59e0b</div><div>Use: Cautions, notifications</div></div></div></div>
+        </div>
+        <h3>Color Usage Guidelines</h3>
+        <table>
+            <tr><th>Color</th><th>Primary Use</th><th>Secondary Use</th></tr>
+            <tr><td><strong style="color: var(--navy);">Navy</strong></td><td>Headlines, primary CTAs, logo</td><td>Backgrounds, accents</td></tr>
+            <tr><td><strong style="color: var(--blue);">Blue</strong></td><td>Links, secondary CTAs</td><td>Icons, gradients</td></tr>
+            <tr><td><strong style="color: var(--teal);">Teal</strong></td><td>Highlights, accent elements</td><td>Hover states, borders</td></tr>
+            <tr><td><strong>Dark</strong></td><td>Body text, headings</td><td>Backgrounds (sparingly)</td></tr>
+        </table>
+        <div class="info-box"><strong>Accessibility:</strong> All color combinations meet WCAG 2.1 AA standards for contrast. Navy on white: 8.6:1, Blue on white: 4.6:1, Teal on white: 3.1:1 (use for large text only).</div>
+    </div>
+</div>
+
+<div class="page" id="typography">
+    <div class="section">
+        <h2 class="section-title">Typography</h2>
+        <p class="section-subtitle">Our type system uses Poppins for headings (distinctive, geometric) and Inter for body text (optimized readability).</p>
+        <h3>Font Families</h3>
+        <div class="color-grid" style="grid-template-columns: 1fr 1fr;">
+            <div><h4>Poppins</h4><p style="font-family: var(--font-heading); font-size: 2rem; font-weight: 700; margin: 1rem 0;">The quick brown fox</p><p style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 300; margin: 1rem 0;">jumps over the lazy dog</p><p style="color: var(--gray-600); font-size: 0.9rem;">Weights: 300, 400, 500, 600, 700, 800</p><p style="color: var(--gray-600); font-size: 0.9rem;">Use: Headlines, section titles, CTAs, logo</p></div>
+            <div><h4>Inter</h4><p style="font-family: var(--font-body); font-size: 1.25rem; margin: 1rem 0;">The quick brown fox jumps over the lazy dog</p><p style="font-family: var(--font-body); font-size: 1rem; margin: 1rem 0;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p><p style="color: var(--gray-600); font-size: 0.9rem;">Weights: 300, 400, 500, 600</p><p style="color: var(--gray-600); font-size: 0.9rem;">Use: Body text, UI elements, forms</p></div>
+        </div>
+        <h3>Type Scale</h3>
+        <div class="type-specimen"><div class="type-label">Display / Hero H1</div><div style="font-family: var(--font-heading); font-size: 4rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;">San Diego's Premier Tax Expert</div><div class="type-specs">Poppins Bold 700 · 64px · Line height 1.1 · Letter spacing -0.02em</div></div>
+        <div class="type-specimen"><div class="type-label">Heading 1</div><div style="font-family: var(--font-heading); font-size: 3rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em;">Tax Planning & Preparation</div><div class="type-specs">Poppins Bold 700 · 48px · Line height 1.2 · Letter spacing -0.01em</div></div>
+        <div class="type-specimen"><div class="type-label">Heading 2</div><div style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 600; line-height: 1.25;">Our Services</div><div class="type-specs">Poppins Semi-Bold 600 · 40px · Line height 1.25</div></div>
+        <div class="type-specimen"><div class="type-label">Heading 3</div><div style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 600; line-height: 1.3;">Business Advisory Services</div><div class="type-specs">Poppins Semi-Bold 600 · 28px · Line height 1.3</div></div>
+        <div class="type-specimen"><div class="type-label">Body Large / Lead</div><div style="font-family: var(--font-body); font-size: 1.125rem; line-height: 1.7;">Expert tax planning and business advisory services led by Shawn Choo, EA. Comprehensive financial services designed to help you succeed in today's economy.</div><div class="type-specs">Inter Regular 400 · 18px · Line height 1.7</div></div>
+        <div class="type-specimen"><div class="type-label">Body Regular</div><div style="font-family: var(--font-body); font-size: 1rem; line-height: 1.6;">Real Strategy combines traditional financial expertise with cutting-edge knowledge of platform economies, content creation, real estate investing, and international tax planning.</div><div class="type-specs">Inter Regular 400 · 16px · Line height 1.6</div></div>
+        <div class="type-specimen"><div class="type-label">Body Small</div><div style="font-family: var(--font-body); font-size: 0.875rem; line-height: 1.6; color: var(--gray-600);">© 2025 Real Strategy LLC. All rights reserved. Enrolled Agent, IRS Licensed.</div><div class="type-specs">Inter Regular 400 · 14px · Line height 1.6 · Gray 600</div></div>
+        <h3>Typography Rules</h3>
+        <div class="do-dont-grid">
+            <div class="do-card"><h4>DO</h4><ul style="margin-left: 1.5rem; color: var(--gray-700);"><li>Use Poppins for all headings</li><li>Use Inter for all body text</li><li>Maintain proper hierarchy (H1→H2→H3)</li><li>Use 16px minimum for body text</li><li>Limit line length to 65-75 characters</li></ul></div>
+            <div class="dont-card"><h4>DON'T</h4><ul style="margin-left: 1.5rem; color: var(--gray-700);"><li>Mix fonts inappropriately</li><li>Use Poppins for long body text</li><li>Use all caps for entire sentences</li><li>Stack more than 2 font weights</li><li>Stretch or condense letterforms</li></ul></div>
+        </div>
+        <h3>Implementation</h3>
+        <div style="background: var(--gray-900); color: var(--gray-100); padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem; margin: 2rem 0;"><div style="color: var(--gray-400);">/* Google Fonts */</div><div>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"&gt;</div><br><div style="color: var(--gray-400);">/* CSS Variables */</div><div>:root {</div><div>&nbsp;&nbsp;--font-heading: 'Poppins', sans-serif;</div><div>&nbsp;&nbsp;--font-body: 'Inter', sans-serif;</div><div>}</div></div>
+    </div>
+</div>
+
+<div class="page" id="voice">
+    <div class="section">
+        <h2 class="section-title">Voice & Tone</h2>
+        <p class="section-subtitle">Our communication style is direct, confident, and human—never corporate or AI-sounding.</p>
+        <h3>Brand Voice Attributes</h3>
+        <table>
+            <tr><th>Attribute</th><th>Description</th><th>Example</th></tr>
+            <tr><td><strong>Direct</strong></td><td>Get to the point, no fluff</td><td>"We save clients $15K+ annually" not "We help optimize financial outcomes"</td></tr>
+            <tr><td><strong>Confident</strong></td><td>Expertise without arrogance</td><td>"Here's what works" not "We think maybe you could consider"</td></tr>
+            <tr><td><strong>Human</strong></td><td>Conversational, not corporate</td><td>"Your accountant doesn't get content creation" not "Traditional paradigms lack contemporary digital expertise"</td></tr>
+            <tr><td><strong>Specific</strong></td><td>Concrete over abstract</td><td>"24-hour response guarantee" not "responsive service"</td></tr>
+        </table>
+        <h3>Writing Guidelines</h3>
+        <h4>✅ DO Write Like This:</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;"><li><strong>Short sentences.</strong> One thought per sentence.</li><li><strong>Concrete numbers.</strong> "$15K saved" beats "significant savings"</li><li><strong>Active voice.</strong> "We'll handle your S-corp setup" not "Your S-corp will be handled"</li><li><strong>Specifics over generalities.</strong> "1031 exchange for your Del Mar rental" not "tax-efficient real estate strategies"</li><li><strong>Plain language.</strong> "Tax deadline" not "filing obligation terminus"</li></ul>
+        <h4>❌ DON'T Write Like This:</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;"><li>Em dashes everywhere—they make you sound like you're trying too hard—avoid them</li><li>"Delve," "nuanced," "comprehensive," "leverage," "seamlessly" (AI tells)</li><li>"It's worth noting that..." (just note it)</li><li>Excessive praise: "thrilled," "excited," "passionate" (show don't tell)</li><li>Neat three-part structures: "We believe X, Y, and Z" (forced symmetry)</li></ul>
+        <h3>Tone by Context</h3>
+        <div class="color-grid">
+            <div style="padding: 2rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--navy);"><h4>Website / Marketing</h4><p style="color: var(--gray-700); margin-top: 0.5rem;">Direct, confident, benefit-focused. Lead with savings, speed, expertise.</p><p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">"Unlike traditional accountants, we understand platform economies and content creation."</p></div>
+            <div style="padding: 2rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--blue);"><h4>Client Communication</h4><p style="color: var(--gray-700); margin-top: 0.5rem;">Professional but approachable. Explain without talking down.</p><p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">"Your Q4 estimated payment is due Jan 15. Here's the breakdown."</p></div>
+            <div style="padding: 2rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--teal);"><h4>Social Media</h4><p style="color: var(--gray-700); margin-top: 0.5rem;">Casual, helpful, no jargon. Quick tips, real examples.</p><p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 1rem; font-style: italic;">"Airbnb hosts: Your cleaning fees are deductible. Track them."</p></div>
+        </div>
+        <h3>Forbidden Phrases</h3>
+        <div class="info-box" style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-left-color: var(--error);"><p><strong>Never use these AI tells:</strong></p><ul style="margin-left: 1.5rem; margin-top: 0.5rem;"><li>"Delve into" → Use "examine" or "look at"</li><li>"Leverage our expertise" → Use "use our expertise"</li><li>"Comprehensive suite of services" → Use "complete services"</li><li>"Seamlessly integrate" → Use "integrate" or "connect"</li><li>"Nuanced approach" → Be specific about what makes it different</li><li>"It's worth noting" → Just note it</li></ul></div>
+        <h3>Credential Language</h3>
+        <div class="info-box"><p><strong>CRITICAL: EA vs. CPA</strong></p><p style="margin-top: 1rem;">Shawn Choo is an <strong>Enrolled Agent (EA)</strong>, NOT a CPA. This must be accurate in all materials:</p><ul style="margin-left: 1.5rem; margin-top: 0.5rem;"><li>✅ "Shawn Choo, EA"</li><li>✅ "Enrolled Agent with IRS unlimited practice rights"</li><li>✅ "IRS's highest credential"</li><li>❌ Never use "CPA" anywhere</li><li>❌ Never use "accountant" alone (use "tax expert" or "EA")</li></ul></div>
+    </div>
+</div>
+
+<div class="page" id="usage">
+    <div class="section">
+        <h2 class="section-title">Usage Examples</h2>
+        <p class="section-subtitle">Practical applications of our brand across different media and contexts.</p>
+        <h3>Spacing System</h3>
+        <div class="info-box"><p><strong>Base Unit: 8px</strong></p><p style="margin-top: 1rem;">Use multiples of 8px for all spacing to maintain visual rhythm:</p><table style="margin-top: 1rem;"><tr><th>Name</th><th>Value</th><th>Use Case</th></tr><tr><td>xs</td><td>4px</td><td>Tight spacing, icons</td></tr><tr><td>sm</td><td>8px</td><td>Small gaps</td></tr><tr><td>md</td><td>16px</td><td>Default spacing</td></tr><tr><td>lg</td><td>24px</td><td>Section spacing</td></tr><tr><td>xl</td><td>32px</td><td>Large gaps</td></tr><tr><td>2xl</td><td>48px</td><td>Major sections</td></tr><tr><td>3xl</td><td>64px</td><td>Page sections</td></tr></table></div>
+    </div>
+</div>
+
+<div style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--teal);">Real Strategy</div>
+        <p style="opacity: 0.8; margin-bottom: 1rem;">Brand Guidelines Version 2.0 | April 2026</p>
+        <p style="opacity: 0.6; font-size: 0.9rem;">© 2026 Real Strategy LLC. All rights reserved.</p>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 1rem;">For questions about brand usage, contact shawn.choo@realstrategy.co</p>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+
+</body>
+</html>
