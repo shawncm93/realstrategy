@@ -35,7 +35,7 @@
         "name": "Real Strategy Tax & Accounting",
         "description": "Professional tax planning and accounting services for modern businesses in San Diego",
         "url": "https://www.realstrategy.co/",
-        "telephone": "+1-858-555-0123",
+        "telephone": "+1-619-320-8319",
         "email": "shawn.choo@realstrategy.co",
         "address": { "@type": "PostalAddress", "addressLocality": "San Diego", "addressRegion": "CA", "addressCountry": "US" },
         "geo": { "@type": "GeoCoordinates", "latitude": "32.7157", "longitude": "-117.1611" },
@@ -47,18 +47,77 @@
         "openingHours": "Mo-Fr 09:00-18:00"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What makes Real Strategy different from other San Diego tax professionals?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We specialize in business models that most accountants don't know well — real estate investors, content creators, tech founders. We work with you year-round instead of showing up at tax time. And you can actually reach us: 24-hour response guaranteed, most messages answered same day."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you serve businesses outside of San Diego?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We're based in San Diego and know California law well, but we work with clients across the country. Most of our client relationships are fully remote — video calls, a shared client portal, and quick turnaround on questions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What areas of San Diego do you serve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All of San Diego County — La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe, Poway, Escondido, UTC, Sorrento Valley, downtown, and everywhere in between."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can I save with professional tax planning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your income, structure, and what's already been done. Clients new to proactive planning typically save $10,000–$20,000+ in year one. We'll give you a realistic estimate in your first consultation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What industries do you specialize in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Real estate investors and agents, content creators, tech and AI startups, platform/gig economy businesses, professional services, and international clients."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How quickly do you respond to client questions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We guarantee a response within 24 hours. In practice, most messages get a reply the same day."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --navy: #2E3192; --blue: #0071BC; --teal: #00A99D; --woodsmoke: #1a1a1a;
             --white: #ffffff; --light-gray: #f8f9fa; --medium-gray: #6c757d;
             --dark-gray: #343a40; --border-gray: #dee2e6;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark-gray); background: var(--white); }
-        h1,h2,h3,h4,h5,h6,.stat-number,.section-header h2,nav a,.cta-button,.btn-primary,.btn-secondary { font-family: 'Inter', sans-serif; }
+        body { font-family: var(--font-body); line-height: 1.6; color: var(--dark-gray); background: var(--white); }
+        h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
+        .stat-number,.section-header h2,.cta-button,.btn-primary,.btn-secondary,.credentials-badge { font-family: var(--font-heading); }
 
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -68,7 +127,7 @@
 
         .header { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: fixed; top: 0; width: 100%; z-index: 1000; transition: box-shadow 0.3s ease; }
         .header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-        .header-top { background: var(--navy); color: var(--white); padding: 0.45rem 0; font-size: 0.82rem; font-family: 'Poppins', sans-serif; }
+        .header-top { background: var(--navy); color: var(--white); padding: 0.45rem 0; font-size: 0.82rem; font-family: var(--font-body); }
         .header-top .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         .contact-info { display: flex; gap: 2rem; }
         .header-main { padding: 0.9rem 0; }
@@ -76,49 +135,66 @@
         .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
         .logo-svg { height: 46px; width: auto; flex-shrink: 0; }
         .logo-text-wrap { display: flex; flex-direction: column; }
-        .logo-name { font-family: 'Inter', sans-serif; font-size: 1.55rem; line-height: 1.1; color: var(--woodsmoke); letter-spacing: -0.02em; }
+        .logo-name { font-family: var(--font-heading); font-size: 1.55rem; line-height: 1.1; color: var(--woodsmoke); letter-spacing: -0.02em; }
         .logo-name strong { font-weight: 800; }
         .logo-name span { font-weight: 300; }
-        .logo-sub { font-family: 'Poppins', sans-serif; font-size: 0.72rem; color: var(--medium-gray); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
+        .logo-sub { font-family: var(--font-body); font-size: 0.72rem; color: var(--medium-gray); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
+
+        .nav-wrap { display: flex; align-items: center; gap: 0.5rem; }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
-        nav a { color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 0.4rem 0; transition: color 0.25s ease; border-bottom: 2px solid transparent; }
+        nav a { font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 0.4rem 0; transition: color 0.25s ease; border-bottom: 2px solid transparent; }
         nav a:hover { color: var(--navy); border-bottom-color: var(--teal); }
-        .cta-button { background: var(--teal); color: var(--white); padding: 0.65rem 1.4rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.25s ease; white-space: nowrap; }
+        .cta-button { background: var(--teal); color: var(--white); padding: 0.65rem 1.4rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.25s ease; white-space: nowrap; font-family: var(--font-heading); }
         .cta-button:hover { background: #008a80; transform: translateY(-1px); }
+
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; flex-direction: column; justify-content: center; gap: 5px; z-index: 1001; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--dark-gray); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; transition: opacity 0.3s ease; }
+        .mobile-nav.open { opacity: 1; }
+        .mobile-nav-panel { position: absolute; top: 0; right: -300px; width: 280px; height: 100%; background: var(--white); box-shadow: -4px 0 20px rgba(0,0,0,0.15); padding: 5rem 1.5rem 2rem; transition: right 0.3s ease; }
+        .mobile-nav.open .mobile-nav-panel { right: 0; }
+        .mobile-nav-panel a { display: block; font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-gray); transition: color 0.2s ease; }
+        .mobile-nav-panel a:hover { color: var(--navy); }
+        .mobile-nav-panel .mobile-cta { display: block; background: var(--teal); color: var(--white); text-align: center; padding: 0.8rem 1.5rem; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; margin-top: 1.5rem; border-bottom: none; }
+        .mobile-nav-panel .mobile-cta:hover { background: #008a80; color: var(--white); }
 
         .hero { position: relative; background: var(--navy); color: var(--white); padding: 11rem 2rem 6rem; text-align: center; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(0,113,188,0.35) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 80% 30%, rgba(0,169,157,0.2) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 60% 80%, rgba(46,49,146,0.6) 0%, transparent 50%); pointer-events: none; }
         .hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
         .hero .container { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
         .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.02em; }
-        .hero .lead { font-family: 'Poppins', sans-serif; font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; }
-        .credentials-badge { background: rgba(255,255,255,0.1); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 25px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 1.25rem 0 2rem; border: 1px solid rgba(255,255,255,0.22); letter-spacing: 0.01em; font-family: 'Inter', sans-serif; }
+        .hero .lead { font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; }
+        .credentials-badge { background: rgba(255,255,255,0.1); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 25px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 1.25rem 0 2rem; border: 1px solid rgba(255,255,255,0.22); letter-spacing: 0.01em; }
         .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-        .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; border: none; cursor: pointer; font-size: 1rem; font-family: var(--font-heading); }
         .btn-primary:hover { background: #008a80; transform: translateY(-2px); }
-        .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; font-size: 1rem; }
+        .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; font-size: 1rem; font-family: var(--font-heading); }
         .btn-secondary:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
 
         .stats-bar { background: var(--white); border-bottom: 1px solid var(--border-gray); padding: 0; }
         .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
         .stat-item { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid var(--border-gray); position: relative; }
         .stat-item:last-child { border-right: none; }
-        .stat-item::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: var(--teal); }
-        .stat-number { font-family: 'Inter', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--navy); display: block; letter-spacing: -0.03em; }
-        .stat-label { color: var(--medium-gray); font-size: 0.88rem; margin-top: 0.4rem; font-family: 'Poppins', sans-serif; line-height: 1.4; }
+        .stat-item::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 2px; }
+        .stat-number { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--navy); display: block; letter-spacing: -0.03em; }
+        .stat-label { color: var(--medium-gray); font-size: 0.88rem; margin-top: 0.4rem; font-family: var(--font-body); line-height: 1.4; }
 
         .section { padding: 5rem 2rem; }
         .section.bg-light { background: var(--light-gray); }
         .container { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-size: 2.3rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
-        .section-header p { font-size: 1.05rem; color: var(--medium-gray); max-width: 600px; margin: 0 auto; }
+        .section-header p { font-size: 1.05rem; color: var(--medium-gray); max-width: 600px; margin: 0 auto; font-family: var(--font-body); }
 
         .about-content { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; max-width: 1000px; margin: 0 auto; }
         .profile-card { background: var(--white); border-radius: 10px; padding: 2rem; text-align: center; box-shadow: 0 4px 24px rgba(46,49,146,0.1); border: 1px solid var(--border-gray); }
         .profile-image { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.25rem; display: block; border: 4px solid var(--teal); }
         .profile-card h3 { font-size: 1.4rem; color: var(--navy); margin-bottom: 0.3rem; }
-        .profile-title { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 0.95rem; }
+        .profile-title { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 0.95rem; font-family: var(--font-heading); }
         .credentials-list { text-align: left; margin-top: 1.25rem; list-style: none; }
         .credentials-list li { color: var(--medium-gray); margin-bottom: 0.5rem; font-size: 0.88rem; padding-left: 1rem; position: relative; }
         .credentials-list li::before { content: '•'; position: absolute; left: 0; color: var(--teal); }
@@ -127,7 +203,7 @@
 
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
         .service-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 1px solid var(--border-gray); transition: all 0.3s ease; position: relative; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--teal); border-radius: 10px 10px 0 0; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
         .service-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 1rem; font-weight: 600; }
         .service-card ul { list-style: none; }
@@ -140,26 +216,27 @@
         .industry-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; font-size: 1rem; }
         .industry-card p { color: var(--medium-gray); font-size: 0.9rem; line-height: 1.55; }
 
-        .contact-section { background: var(--navy); color: var(--white); padding: 5rem 2rem; }
-        .contact-content { max-width: 760px; margin: 0 auto; text-align: center; }
+        .contact-section { background: var(--navy); color: var(--white); padding: 5rem 2rem; position: relative; overflow: hidden; }
+        .contact-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 80% 20%, rgba(0,113,188,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(0,169,157,0.1) 0%, transparent 60%); pointer-events: none; }
+        .contact-content { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
         .contact-section h2 { font-size: 2.3rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
         .contact-form { background: var(--white); padding: 2.5rem; border-radius: 10px; margin-top: 2.5rem; color: var(--dark-gray); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
         .form-group { margin-bottom: 1.25rem; }
-        .form-group label { display: block; margin-bottom: 0.45rem; font-weight: 500; color: var(--dark-gray); font-size: 0.9rem; font-family: 'Inter', sans-serif; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 0.95rem; transition: border-color 0.25s ease; background: var(--white); color: var(--dark-gray); }
+        .form-group label { display: block; margin-bottom: 0.45rem; font-weight: 500; color: var(--dark-gray); font-size: 0.9rem; font-family: var(--font-body); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.25s ease; background: var(--white); color: var(--dark-gray); }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(46,49,146,0.08); }
         .form-success { display: none; background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 8px; padding: 2rem; text-align: center; margin-top: 1rem; }
         .form-success.visible { display: block; }
         .form-success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-        .form-success h4 { font-family: 'Inter', sans-serif; color: #166534; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .form-success h4 { font-family: var(--font-heading); color: #166534; font-size: 1.2rem; margin-bottom: 0.5rem; }
         .form-success p { color: #15803d; font-size: 0.95rem; }
         .form-error-msg { display: none; background: #fef2f2; border: 1.5px solid #f87171; border-radius: 6px; padding: 0.75rem 1rem; color: #b91c1c; font-size: 0.9rem; margin-bottom: 1rem; }
         .form-error-msg.visible { display: block; }
 
         .footer { background: var(--woodsmoke); color: var(--white); padding: 3.5rem 2rem 1.5rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .footer-logo { font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
+        .footer-logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
         .problem-section { background: var(--light-gray); border-top: 4px solid var(--navy); }
 
         .spec-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; }
@@ -170,17 +247,18 @@
         .spec-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
         .faq-item { border: 1px solid var(--border-gray); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
-        .faq-question { background: var(--light-gray); padding: 1.25rem 1.5rem; margin: 0; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; font-weight: 600; user-select: none; transition: background 0.2s ease; }
+        .faq-question { width: 100%; background: var(--light-gray); padding: 1.25rem 1.5rem; margin: 0; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; font-weight: 600; font-family: var(--font-heading); user-select: none; transition: background 0.2s ease; border: none; text-align: left; }
         .faq-question:hover { background: #eef0f8; }
-        .faq-icon { font-size: 1.2rem; font-weight: 300; flex-shrink: 0; margin-left: 1rem; }
-        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
-        .faq-answer.open { max-height: 300px; padding: 1.25rem 1.5rem; }
-        .faq-answer p { color: var(--medium-gray); line-height: 1.65; margin: 0; font-size: 0.95rem; }
+        .faq-icon { font-size: 1.2rem; font-weight: 300; flex-shrink: 0; margin-left: 1rem; transition: transform 0.3s ease; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-answer-inner { padding: 0 1.5rem 1.25rem; }
+        .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; font-size: 0.95rem; }
 
         .testimonial-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-top: 4px solid var(--teal); }
         .stars { margin-bottom: 1.25rem; font-size: 1rem; color: #f59e0b; letter-spacing: 2px; }
         .testimonial-card blockquote { font-style: italic; color: var(--medium-gray); font-size: 1rem; line-height: 1.65; margin-bottom: 1.25rem; }
-        .testimonial-author { font-weight: 600; color: var(--navy); font-family: 'Inter', sans-serif; }
+        .testimonial-author { font-weight: 600; color: var(--navy); font-family: var(--font-heading); }
         .testimonial-role { color: var(--medium-gray); font-size: 0.85rem; margin-top: 2px; }
 
         .area-card { text-align: center; padding: 1.75rem; }
@@ -191,36 +269,28 @@
         .cta-banner h3 { margin-bottom: 0.75rem; font-size: 1.3rem; }
         .cta-banner p { opacity: 0.88; margin-bottom: 1.5rem; font-size: 0.95rem; }
 
-        /* ── Mobile ── */
         @media (max-width: 768px) {
-            /* Keep header as a single compact row — logo left, CTA right */
             .header-top { display: none; }
             .header-main { padding: 0.7rem 0; }
-            .header-main .container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0 1rem;
-            }
-            nav { display: none; }           /* hide nav links on mobile */
+            .header-main .container { flex-direction: row; justify-content: space-between; align-items: center; padding: 0 1rem; }
+            nav { display: none; }
+            .desktop-cta { display: none; }
+            .hamburger { display: flex; }
+            .mobile-nav { display: block; pointer-events: none; }
+            .mobile-nav.open { pointer-events: auto; }
             .logo-svg { height: 34px; }
             .logo-name { font-size: 1.15rem; }
             .logo-sub { display: none; }
-            .cta-button { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
-
-            /* Hero offset matches the shorter mobile header (~56px) */
             .hero { padding: 5rem 1rem 3.5rem; }
             .hero h1 { font-size: 1.85rem; }
             .hero .lead { font-size: 0.97rem; }
             .credentials-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
-
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-item { border-right: none; border-bottom: 1px solid var(--border-gray); }
             .stat-item:nth-child(odd) { border-right: 1px solid var(--border-gray); }
             .stat-item:nth-last-child(-n+2) { border-bottom: none; }
-
             .section { padding: 3.5rem 1rem; }
             .section-header h2 { font-size: 1.8rem; }
             .about-content { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
@@ -244,7 +314,7 @@
             <div class="container">
                 <div class="contact-info">
                     <span>📍 San Diego, CA | Serving La Jolla, Carlsbad, Del Mar</span>
-                    <span>📧 shawn.choo@realstrategy.co | 📞 (858) 555-0123</span>
+                    <span>📧 shawn.choo@realstrategy.co | 📞 (619) 320-8319</span>
                 </div>
                 <div>24-Hour Response Guarantee | Nationwide Service</div>
             </div>
@@ -265,26 +335,42 @@
                         <div class="logo-sub">Tax &amp; Accounting</div>
                     </div>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#industries">Industries</a></li>
-                        <li><a href="#san-diego-areas">San Diego Areas</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="#contact" class="cta-button">Schedule Consultation</a>
+                <div class="nav-wrap">
+                    <nav>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#industries">Industries</a></li>
+                            <li><a href="#san-diego-areas">San Diego Areas</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#contact" class="cta-button desktop-cta">Schedule Consultation</a>
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-panel">
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="#industries" class="mobile-nav-link">Industries</a>
+            <a href="#san-diego-areas" class="mobile-nav-link">San Diego Areas</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="#contact" class="mobile-cta mobile-nav-link">Schedule Consultation</a>
+        </div>
+    </div>
 
     <section id="home" class="hero">
         <div class="container">
             <h1 class="reveal">Your accountant files taxes. We cut them.</h1>
             <p class="lead reveal reveal-delay-1">Proactive tax planning for real estate professionals, content creators, and tech startups — led by <a href="#about" style="color:var(--white);text-decoration:underline;">Shawn Choo, EA</a></p>
             <div class="credentials-badge reveal reveal-delay-2">Harvard Graduate &bull; Enrolled Agent &bull; 24-Hour Response Guarantee</div>
-            <p class="reveal reveal-delay-2" style="font-size:1.05rem;max-width:680px;margin:0 auto;opacity:0.9;font-family:'Poppins',sans-serif;">Most tax professionals show up in April. We work with you year-round to make sure you're not leaving money on the table. Based in <a href="#san-diego-areas" style="color:var(--white);text-decoration:underline;">San Diego</a>, serving clients nationwide.</p>
+            <p class="reveal reveal-delay-2" style="font-size:1.05rem;max-width:680px;margin:0 auto;opacity:0.9;font-family:var(--font-body);">Most tax professionals show up in April. We work with you year-round to make sure you're not leaving money on the table. Based in <a href="#san-diego-areas" style="color:var(--white);text-decoration:underline;">San Diego</a>, serving clients nationwide.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#contact" class="btn-primary">Free Consultation</a>
                 <a href="#services" class="btn-secondary">Our Services</a>
@@ -305,11 +391,11 @@
         <div class="container">
             <div class="section-header reveal"><h2>Sound familiar?</h2><p>A lot of business owners come to us after years of reactive tax prep. The frustrations are usually the same.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;margin-top:2rem;">
-                <div class="reveal" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">❌ "My accountant doesn't get my business"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
-                <div class="reveal reveal-delay-1" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">❌ "I only hear from them at tax time"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
-                <div class="reveal reveal-delay-2" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">❌ "I can never get a straight answer"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
+                <div class="reveal" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "My accountant doesn't get my business"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
+                <div class="reveal reveal-delay-1" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "I only hear from them at tax time"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
+                <div class="reveal reveal-delay-2" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "I can never get a straight answer"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
             </div>
-            <div class="reveal" style="text-align:center;margin-top:2rem;padding:2rem;background:var(--white);border-radius:10px;border:2px solid var(--teal);"><h3 style="color:var(--teal);margin-bottom:0.75rem;font-family:'Inter',sans-serif;">How Real Strategy works differently</h3><p style="color:var(--medium-gray);font-size:1rem;line-height:1.7;">We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
+            <div class="reveal" style="text-align:center;margin-top:2rem;padding:2rem;background:var(--white);border-radius:10px;border:2px solid var(--teal);"><h3 style="color:var(--teal);margin-bottom:0.75rem;">How Real Strategy works differently</h3><p style="color:var(--medium-gray);font-size:1rem;line-height:1.7;">We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
         </div>
     </section>
 
@@ -367,7 +453,7 @@
                 <div class="area-card reveal reveal-delay-1"><h3>🏢 Business Districts</h3><p><strong>Downtown, UTC, Sorrento Valley, Carlsbad</strong><br>Tech startups, biotech, SaaS, and professional services firms. We know the R&D credit landscape and equity comp well.</p></div>
                 <div class="area-card reveal reveal-delay-2"><h3>🏡 Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
             </div>
-            <div class="reveal" style="background:var(--light-gray);padding:2rem;border-radius:10px;text-align:center;"><h3 style="color:var(--teal);margin-bottom:0.75rem;font-family:'Inter',sans-serif;">California has its own rules — and we know them</h3><p style="color:var(--medium-gray);line-height:1.7;max-width:800px;margin:0 auto;font-size:0.95rem;">California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
+            <div class="reveal" style="background:var(--light-gray);padding:2rem;border-radius:10px;text-align:center;"><h3 style="color:var(--teal);margin-bottom:0.75rem;">California has its own rules — and we know them</h3><p style="color:var(--medium-gray);line-height:1.7;max-width:800px;margin:0 auto;font-size:0.95rem;">California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
         </div>
     </section>
 
@@ -412,12 +498,12 @@
         <div class="container">
             <div class="section-header reveal"><h2>Common questions</h2><p>Straightforward answers to things people ask before reaching out.</p></div>
             <div style="max-width:800px;margin:0 auto;">
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">What makes Real Strategy different from other San Diego tax professionals?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>A few things. We specialize in business models that most accountants don't know well — real estate investors, content creators, tech founders. We work with you year-round instead of showing up at tax time. And you can actually reach us: <strong>24-hour response guaranteed</strong>, most messages answered same day.</p></div></div>
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">Do you serve businesses outside of San Diego?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>Yes. We're based in San Diego and know California law well, but we work with clients across the country. Most of our client relationships are fully remote — video calls, a shared client portal, and quick turnaround on questions.</p></div></div>
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">What areas of San Diego do you serve?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>All of San Diego County — <strong>La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe, Poway, Escondido, UTC, Sorrento Valley</strong>, downtown, and everywhere in between. In-person meetings available; most clients prefer video.</p></div></div>
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">How much can I save with professional tax planning?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>It depends on your income, structure, and what's already been done. Clients new to proactive planning typically save <strong>$10,000–$20,000+ in year one</strong>. We'll give you a realistic estimate in your first consultation — no vague promises.</p></div></div>
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">What industries do you specialize in?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>Real estate investors and agents, content creators, tech and AI startups, platform/gig economy businesses, professional services, and international clients. If your tax situation is complicated, that's usually a good sign we can help.</p></div></div>
-                <div class="faq-item reveal"><h3 class="faq-question" onclick="toggleFAQ(this)">How quickly do you respond to client questions?<span class="faq-icon">+</span></h3><div class="faq-answer"><p>We guarantee a response within <strong>24 hours</strong>. In practice, most messages get a reply the same day. This matters more than people expect — tax questions often come up when you're making a decision, not in April.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What makes Real Strategy different from other San Diego tax professionals?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>A few things. We specialize in business models that most accountants don't know well — real estate investors, content creators, tech founders. We work with you year-round instead of showing up at tax time. And you can actually reach us: <strong>24-hour response guaranteed</strong>, most messages answered same day.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">Do you serve businesses outside of San Diego?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We're based in San Diego and know California law well, but we work with clients across the country. Most of our client relationships are fully remote — video calls, a shared client portal, and quick turnaround on questions.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What areas of San Diego do you serve?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>All of San Diego County — <strong>La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe, Poway, Escondido, UTC, Sorrento Valley</strong>, downtown, and everywhere in between. In-person meetings available; most clients prefer video.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How much can I save with professional tax planning?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>It depends on your income, structure, and what's already been done. Clients new to proactive planning typically save <strong>$10,000–$20,000+ in year one</strong>. We'll give you a realistic estimate in your first consultation — no vague promises.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What industries do you specialize in?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Real estate investors and agents, content creators, tech and AI startups, platform/gig economy businesses, professional services, and international clients. If your tax situation is complicated, that's usually a good sign we can help.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How quickly do you respond to client questions?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>We guarantee a response within <strong>24 hours</strong>. In practice, most messages get a reply the same day. This matters more than people expect — tax questions often come up when you're making a decision, not in April.</p></div></div></div>
             </div>
         </div>
     </section>
@@ -428,7 +514,7 @@
             <p class="reveal reveal-delay-1" style="font-size:1.1rem;margin-bottom:0.75rem;"><strong>Free 30-minute call</strong> — bring your situation, we'll tell you what we can actually do.</p>
             <p class="reveal reveal-delay-1" style="opacity:0.88;font-size:0.95rem;">No pitch. No pressure. Upfront pricing if it's a good fit.</p>
             <form class="contact-form reveal reveal-delay-2" id="contactForm" novalidate>
-                <h3 style="color:var(--navy);margin-bottom:1.5rem;text-align:center;font-family:'Inter',sans-serif;">Book a Free Consultation</h3>
+                <h3 style="color:var(--navy);margin-bottom:1.5rem;text-align:center;">Book a Free Consultation</h3>
                 <div class="form-error-msg" id="formError">Please fill in all required fields (First Name, Last Name, and Email).</div>
                 <div class="form-row">
                     <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" required autocomplete="given-name"></div>
@@ -464,21 +550,21 @@
             <p style="margin-bottom:1rem;font-size:0.9rem;opacity:0.85;">Tax planning for real estate, content creators &amp; tech startups | Shawn Choo, EA</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin:2.5rem 0;text-align:left;">
                 <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:'Inter',sans-serif;font-size:0.95rem;">Contact Info</h4>
+                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">Contact Info</h4>
                     <p style="margin-bottom:0.5rem;font-size:0.9rem;">📧 shawn.choo@realstrategy.co</p>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">📞 (858) 555-0123</p>
+                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">📞 (619) 320-8319</p>
                     <p style="margin-bottom:0.5rem;font-size:0.9rem;">📍 San Diego, CA</p>
                     <p style="font-size:0.85rem;color:#aaa;">24-Hour Response Guarantee</p>
                 </div>
                 <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:'Inter',sans-serif;font-size:0.95rem;">San Diego Areas</h4>
+                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">San Diego Areas</h4>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">La Jolla &bull; Del Mar &bull; Carlsbad</p>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">Encinitas &bull; Solana Beach &bull; UTC</p>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">Poway &bull; Escondido &bull; Rancho Santa Fe</p>
                     <p style="font-size:0.85rem;color:#aaa;">+ Nationwide Service</p>
                 </div>
                 <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:'Inter',sans-serif;font-size:0.95rem;">Specializations</h4>
+                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">Specializations</h4>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">Real Estate Tax Planning</p>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">Content Creator Optimization</p>
                     <p style="margin-bottom:0.4rem;font-size:0.88rem;">Tech Startup Accounting</p>
@@ -502,7 +588,51 @@
         window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                closeMobileNav();
+            });
+        });
+
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === this) closeMobileNav();
+        });
+
+        function closeMobileNav() {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.parentElement;
+                const answer = this.nextElementSibling;
+                const isOpen = item.classList.contains('open');
+
+                document.querySelectorAll('.faq-item.open').forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-answer').style.maxHeight = '0';
+                        other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                item.classList.toggle('open');
+                this.setAttribute('aria-expanded', !isOpen);
+                answer.style.maxHeight = isOpen ? '0' : answer.scrollHeight + 'px';
+            });
         });
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -517,15 +647,6 @@
             this.style.display = 'none';
             document.getElementById('formSuccess').classList.add('visible');
         });
-
-        function toggleFAQ(btn) {
-            const answer = btn.nextElementSibling;
-            const icon = btn.querySelector('.faq-icon');
-            const isOpen = answer.classList.contains('open');
-            document.querySelectorAll('.faq-answer.open').forEach(a => { a.classList.remove('open'); a.previousElementSibling.querySelector('.faq-icon').textContent = '+'; });
-            if (!isOpen) { answer.classList.add('open'); icon.textContent = '−'; }
-        }
-        window.toggleFAQ = toggleFAQ;
 
         document.querySelectorAll('.service-card, .industry-card').forEach(card => {
             card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
