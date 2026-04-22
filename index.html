@@ -112,6 +112,7 @@
             --navy: #2E3192; --blue: #0071BC; --teal: #00A99D; --woodsmoke: #1a1a1a;
             --white: #ffffff; --light-gray: #f8f9fa; --medium-gray: #6c757d;
             --dark-gray: #343a40; --border-gray: #dee2e6;
+            --amber: #d97706;
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -196,12 +197,6 @@
         .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; font-size: 1rem; font-family: var(--font-heading); }
         .btn-secondary:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
 
-        .trust-bar { background: var(--light-gray); border-bottom: 1px solid var(--border-gray); padding: 1.5rem 2rem; }
-        .trust-grid { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2.5rem; }
-        .trust-item { display: flex; align-items: center; gap: 0.6rem; color: var(--dark-gray); font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; }
-        .trust-item svg { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; }
-        .trust-item strong { color: var(--navy); font-family: var(--font-heading); font-weight: 700; }
-
         .stats-bar { background: var(--white); border-bottom: 1px solid var(--border-gray); padding: 0; }
         .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
         .stat-item { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid var(--border-gray); position: relative; }
@@ -228,6 +223,10 @@
         .about-text h2 { font-size: 1.9rem; color: var(--navy); margin-bottom: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
         .about-text h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; }
 
+        /* Unified card top accent — gradient navy to teal */
+        .accent-card { position: relative; }
+        .accent-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
+
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
         .service-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 1px solid var(--border-gray); transition: all 0.3s ease; position: relative; }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
@@ -238,9 +237,10 @@
         .service-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
         .industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
-        .industry-card { background: var(--white); padding: 1.75rem; border-radius: 10px; border: 1px solid var(--border-gray); border-top: 4px solid var(--teal); transition: all 0.3s ease; }
+        .industry-card { background: var(--white); padding: 1.75rem; border-radius: 10px; border: 1px solid var(--border-gray); transition: all 0.3s ease; position: relative; }
+        .industry-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .industry-card:hover { transform: translateY(-3px); box-shadow: 0 6px 22px rgba(0,0,0,0.09); }
-        .industry-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; font-size: 1rem; }
+        .industry-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; font-size: 1rem; padding-top: 0.25rem; }
         .industry-card p { color: var(--medium-gray); font-size: 0.9rem; line-height: 1.55; }
 
         .contact-section { background: var(--navy); color: var(--white); padding: 5rem 2rem; position: relative; overflow: hidden; }
@@ -268,10 +268,14 @@
         .footer a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
         .footer a:hover { color: var(--teal); }
         .problem-section { background: var(--light-gray); border-top: 4px solid var(--navy); }
+        .problem-card { background: var(--white); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--amber); }
+        .problem-card h3 { color: var(--woodsmoke); margin-bottom: 0.75rem; font-size: 1.05rem; font-weight: 600; }
+        .problem-card p { color: var(--medium-gray); font-size: 0.93rem; }
 
-        .spec-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border-top: 4px solid var(--teal); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .spec-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; position: relative; }
+        .spec-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .spec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
-        .spec-card h3 { color: var(--navy); margin-bottom: 1.25rem; font-weight: 600; font-size: 1.1rem; }
+        .spec-card h3 { color: var(--navy); margin-bottom: 1.25rem; font-weight: 600; font-size: 1.1rem; padding-top: 0.25rem; }
         .spec-card ul { list-style: none; padding: 0; }
         .spec-card li { margin-bottom: 0.65rem; padding-left: 1.5rem; position: relative; color: var(--medium-gray); font-size: 0.9rem; line-height: 1.5; }
         .spec-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
@@ -285,8 +289,9 @@
         .faq-answer-inner { padding: 0 1.5rem 1.25rem; }
         .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; font-size: 0.95rem; }
 
-        .testimonial-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-top: 4px solid var(--teal); }
-        .stars { margin-bottom: 1.25rem; font-size: 1rem; color: #f59e0b; letter-spacing: 2px; }
+        .testimonial-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; }
+        .testimonial-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
+        .stars { margin-bottom: 1.25rem; font-size: 1rem; color: #f59e0b; letter-spacing: 2px; padding-top: 0.25rem; }
         .testimonial-card blockquote { font-style: italic; color: var(--medium-gray); font-size: 1rem; line-height: 1.65; margin-bottom: 1.25rem; }
         .testimonial-author { font-weight: 600; color: var(--navy); font-family: var(--font-heading); }
         .testimonial-role { color: var(--medium-gray); font-size: 0.85rem; margin-top: 2px; }
@@ -317,10 +322,6 @@
             .credentials-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
-            .trust-bar { padding: 1.25rem 1rem; }
-            .trust-grid { gap: 1rem 1.5rem; }
-            .trust-item { font-size: 0.8rem; }
-            .trust-item svg { width: 16px; height: 16px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-item { border-right: none; border-bottom: 1px solid var(--border-gray); }
             .stat-item:nth-child(odd) { border-right: 1px solid var(--border-gray); }
@@ -423,27 +424,6 @@
         </div>
     </section>
 
-    <section class="trust-bar" aria-label="Credentials and trust signals">
-        <div class="trust-grid">
-            <div class="trust-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2 L3 7 V12 C3 17 7 21 12 22 C17 21 21 17 21 12 V7 Z M9 12 L11 14 L15 10"/></svg>
-                <span><strong>IRS Enrolled Agent</strong> — Highest credential</span>
-            </div>
-            <div class="trust-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M22 10 L12 5 L2 10 L12 15 Z M6 12 V17 C6 17 8 19 12 19 C16 19 18 17 18 17 V12"/></svg>
-                <span><strong>Harvard</strong> Graduate</span>
-            </div>
-            <div class="trust-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span><strong>24-Hour</strong> Response Guarantee</span>
-            </div>
-            <div class="trust-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2 L15 8 L21 9 L17 14 L18 21 L12 18 L6 21 L7 14 L3 9 L9 8 Z"/></svg>
-                <span><strong>$15K+</strong> Average year-one savings</span>
-            </div>
-        </div>
-    </section>
-
     <section class="stats-bar" aria-label="Key statistics">
         <div class="stats-grid">
             <div class="stat-item reveal"><span class="stat-number">$15K+</span><div class="stat-label">Average tax savings in year one</div></div>
@@ -457,9 +437,9 @@
         <div class="container">
             <div class="section-header reveal"><h2 id="problem-heading">Sound familiar?</h2><p>A lot of business owners come to us after years of reactive tax prep. The frustrations are usually the same.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;margin-top:2rem;">
-                <div class="reveal" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"My accountant doesn't get my business"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
-                <div class="reveal reveal-delay-1" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"I only hear from them at tax time"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
-                <div class="reveal reveal-delay-2" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"I can never get a straight answer"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
+                <div class="reveal problem-card"><h3>"My accountant doesn't get my business"</h3><p>Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
+                <div class="reveal reveal-delay-1 problem-card"><h3>"I only hear from them at tax time"</h3><p>By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
+                <div class="reveal reveal-delay-2 problem-card"><h3>"I can never get a straight answer"</h3><p>Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
             </div>
             <div class="reveal" style="text-align:center;margin-top:2rem;padding:2rem;background:var(--white);border-radius:10px;border:2px solid var(--teal);"><h3 style="color:var(--teal);margin-bottom:0.75rem;">How Real Strategy works differently</h3><p style="color:var(--medium-gray);font-size:1rem;line-height:1.7;">We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
         </div>
@@ -515,9 +495,9 @@
         <div class="container">
             <div class="section-header reveal"><h2 id="areas-heading">Based in San Diego. Working nationwide.</h2><p>We know the local market, the California-specific rules, and the neighborhoods our clients are building businesses in.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-bottom:3rem;">
-                <div class="area-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2 L20 10 L18 12 L12 6 L6 12 L4 10 Z M4 14 L20 14 M4 18 L20 18 M4 22 L20 22"/></svg>Coastal Communities</h3><p><strong>La Jolla, Del Mar, Solana Beach, Encinitas</strong><br>Mostly real estate investors, high-income professionals, and business owners navigating California's tax complexity.</p></div>
+                <div class="area-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M2 18 C5 14, 9 14, 12 18 C15 14, 19 14, 22 18 M2 14 C5 10, 9 10, 12 14 C15 10, 19 10, 22 14 M2 10 C5 6, 9 6, 12 10 C15 6, 19 6, 22 10"/></svg>Coastal Communities</h3><p><strong>La Jolla, Del Mar, Solana Beach, Encinitas</strong><br>Mostly real estate investors, high-income professionals, and business owners navigating California's tax complexity.</p></div>
                 <div class="area-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21 V7 L12 3 L20 7 V21 M4 21 H20 M9 21 V14 H15 V21 M9 10 H11 M13 10 H15"/></svg>Business Districts</h3><p><strong>Downtown, UTC, Sorrento Valley, Carlsbad</strong><br>Tech startups, biotech, SaaS, and professional services firms. We know the R&D credit landscape and equity comp well.</p></div>
-                <div class="area-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12 L12 3 L21 12 M5 10 V21 H19 V10 M10 21 V15 H14 V21"/></svg>Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
+                <div class="area-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M2 21 H22 M4 21 V12 L8 9 L8 21 M10 21 V7 L15 4 L15 21 M17 21 V14 L21 11 L21 21"/></svg>Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
             </div>
             <div class="reveal" style="background:var(--light-gray);padding:2rem;border-radius:10px;text-align:center;"><h3 style="color:var(--teal);margin-bottom:0.75rem;">California has its own rules — and we know them</h3><p style="color:var(--medium-gray);line-height:1.7;max-width:800px;margin:0 auto;font-size:0.95rem;">California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
         </div>
@@ -727,11 +707,6 @@
             window.location.href = `mailto:shawn.choo@realstrategy.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             this.style.display = 'none';
             document.getElementById('formSuccess').classList.add('visible');
-        });
-
-        document.querySelectorAll('.service-card, .industry-card').forEach(card => {
-            card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
-            card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
         });
     </script>
 </body>
