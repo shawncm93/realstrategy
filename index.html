@@ -114,17 +114,16 @@
             --dark-gray: #343a40; --border-gray: #dee2e6;
             --amber: #d97706;
 
-            /* Type scale */
-            --text-xs:   0.75rem;   /* 12px */
-            --text-sm:   0.8125rem; /* 13px */
-            --text-md:   0.875rem;  /* 14px */
-            --text-base: 1rem;      /* 16px */
-            --text-lg:   1.125rem;  /* 18px */
-            --text-xl:   1.25rem;   /* 20px */
-            --text-2xl:  1.5rem;    /* 24px */
-            --text-3xl:  1.875rem;  /* 30px */
-            --text-4xl:  2.25rem;   /* 36px */
-            --text-5xl:  3rem;      /* 48px */
+            --text-xs:   0.75rem;
+            --text-sm:   0.8125rem;
+            --text-md:   0.875rem;
+            --text-base: 1rem;
+            --text-lg:   1.125rem;
+            --text-xl:   1.25rem;
+            --text-2xl:  1.5rem;
+            --text-3xl:  1.875rem;
+            --text-4xl:  2.25rem;
+            --text-5xl:  3rem;
 
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Inter', sans-serif;
@@ -165,10 +164,15 @@
         .contact-info a { color: var(--white); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s ease; }
         .contact-info a:hover { color: var(--teal); }
         .contact-info svg { width: 13px; height: 13px; opacity: 0.85; }
-        .header-main { padding: 0.75rem 0; }
+        .header-main { padding: 0.9rem 0; }
         .header-main .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 56px; width: auto; display: block; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-svg { height: 48px; width: auto; flex-shrink: 0; }
+        .logo-text-wrap { display: flex; flex-direction: column; line-height: 1; }
+        .logo-name { font-family: var(--font-heading); font-size: var(--text-2xl); line-height: 1; color: var(--woodsmoke); letter-spacing: -0.02em; }
+        .logo-name strong { font-style: italic; font-weight: 800; }
+        .logo-name em { font-style: italic; font-weight: 300; margin-left: 2px; }
+        .logo-sub { font-family: var(--font-body); font-size: var(--text-xs); color: var(--medium-gray); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
         .nav-wrap { display: flex; align-items: center; gap: 0.5rem; }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
@@ -345,7 +349,9 @@
             .hamburger { display: flex; }
             .mobile-nav { display: block; pointer-events: none; }
             .mobile-nav.open { pointer-events: auto; }
-            .logo-img { height: 42px; }
+            .logo-svg { height: 38px; }
+            .logo-name { font-size: var(--text-xl); }
+            .logo-sub { display: none; }
             .hero { padding: 5rem 1rem 3.5rem; }
             .hero h1 { font-size: var(--text-3xl); }
             .hero .lead { font-size: var(--text-base); }
@@ -399,7 +405,16 @@
         <div class="header-main">
             <div class="container">
                 <a href="#home" class="logo" aria-label="Real Strategy home">
-                    <img src="RealStrategy.png" alt="Real Strategy" class="logo-img">
+                    <svg class="logo-svg" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path d="M6 4 H32 Q50 4 50 22 Q50 35 36 38 L52 60 H40 L25 39 H18 V60 H6 Z M18 14 V30 H30 Q36 30 36 22 Q36 14 30 14 Z" fill="#1a1a1a"/>
+                        <rect x="8" y="6" width="9" height="9" fill="#2E3192"/>
+                        <rect x="8" y="15" width="9" height="9" fill="#0071BC"/>
+                        <rect x="8" y="24" width="9" height="9" fill="#00A99D"/>
+                    </svg>
+                    <div class="logo-text-wrap">
+                        <div class="logo-name"><strong>Real</strong><em>Strategy</em></div>
+                        <div class="logo-sub">Tax &amp; Accounting</div>
+                    </div>
                 </a>
                 <div class="nav-wrap">
                     <nav aria-label="Primary">
