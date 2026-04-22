@@ -109,18 +109,31 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --navy: #2E3192; --blue: #0071BC; --teal: #00A99D; --woodsmoke: #1a1a1a;
-            --white: #ffffff; --light-gray: #f8f9fa; --medium-gray: #6c757d;
+            --navy: #2E3192; --blue: #0071BC; --teal: #00A99D; --teal-text: #006b63; --woodsmoke: #1a1a1a;
+            --white: #ffffff; --light-gray: #f1f3f7; --medium-gray: #5f6670;
             --dark-gray: #343a40; --border-gray: #dee2e6;
             --amber: #d97706;
+
+            /* Type scale */
+            --text-xs:   0.75rem;   /* 12px */
+            --text-sm:   0.8125rem; /* 13px */
+            --text-md:   0.875rem;  /* 14px */
+            --text-base: 1rem;      /* 16px */
+            --text-lg:   1.125rem;  /* 18px */
+            --text-xl:   1.25rem;   /* 20px */
+            --text-2xl:  1.5rem;    /* 24px */
+            --text-3xl:  1.875rem;  /* 30px */
+            --text-4xl:  2.25rem;   /* 36px */
+            --text-5xl:  3rem;      /* 48px */
+
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
-        body { font-family: var(--font-body); line-height: 1.6; color: var(--dark-gray); background: var(--white); }
+        body { font-family: var(--font-body); line-height: 1.6; color: var(--dark-gray); background: var(--white); font-size: var(--text-base); }
         h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
         .stat-number,.section-header h2,.cta-button,.btn-primary,.btn-secondary,.credentials-badge { font-family: var(--font-heading); }
 
-        .skip-link { position: absolute; top: -40px; left: 0; background: var(--navy); color: var(--white); padding: 0.75rem 1.25rem; text-decoration: none; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; z-index: 9999; border-radius: 0 0 6px 0; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--navy); color: var(--white); padding: 0.75rem 1.25rem; text-decoration: none; font-family: var(--font-heading); font-weight: 600; font-size: var(--text-base); z-index: 9999; border-radius: 0 0 6px 0; }
         .skip-link:focus { top: 0; }
 
         :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 3px; }
@@ -146,27 +159,22 @@
 
         .header { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: fixed; top: 0; width: 100%; z-index: 1000; transition: box-shadow 0.3s ease; }
         .header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-        .header-top { background: var(--navy); color: var(--white); padding: 0.45rem 0; font-size: 0.82rem; font-family: var(--font-body); }
+        .header-top { background: var(--navy); color: var(--white); padding: 0.5rem 0; font-size: var(--text-sm); font-family: var(--font-body); }
         .header-top .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         .contact-info { display: flex; gap: 1.5rem; align-items: center; }
         .contact-info a { color: var(--white); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s ease; }
         .contact-info a:hover { color: var(--teal); }
         .contact-info svg { width: 13px; height: 13px; opacity: 0.85; }
-        .header-main { padding: 0.9rem 0; }
+        .header-main { padding: 0.75rem 0; }
         .header-main .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-        .logo-svg { height: 46px; width: auto; flex-shrink: 0; }
-        .logo-text-wrap { display: flex; flex-direction: column; }
-        .logo-name { font-family: var(--font-heading); font-size: 1.55rem; line-height: 1.1; color: var(--woodsmoke); letter-spacing: -0.02em; }
-        .logo-name strong { font-weight: 800; }
-        .logo-name span { font-weight: 300; }
-        .logo-sub { font-family: var(--font-body); font-size: 0.72rem; color: var(--medium-gray); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 1px; }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 56px; width: auto; display: block; }
 
         .nav-wrap { display: flex; align-items: center; gap: 0.5rem; }
         nav ul { display: flex; list-style: none; gap: 1.8rem; }
-        nav a { font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 0.4rem 0; transition: color 0.25s ease; border-bottom: 2px solid transparent; }
+        nav a { font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: var(--text-md); padding: 0.4rem 0; transition: color 0.25s ease; border-bottom: 2px solid transparent; }
         nav a:hover { color: var(--navy); border-bottom-color: var(--teal); }
-        .cta-button { background: var(--teal); color: var(--white); padding: 0.65rem 1.4rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.25s ease; white-space: nowrap; font-family: var(--font-heading); }
+        .cta-button { background: var(--teal); color: var(--white); padding: 0.65rem 1.4rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: var(--text-md); transition: all 0.25s ease; white-space: nowrap; font-family: var(--font-heading); }
         .cta-button:hover { background: #008a80; transform: translateY(-1px); }
 
         .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; flex-direction: column; justify-content: center; gap: 5px; z-index: 1001; }
@@ -179,22 +187,23 @@
         .mobile-nav.open { opacity: 1; }
         .mobile-nav-panel { position: absolute; top: 0; right: -300px; width: 280px; height: 100%; background: var(--white); box-shadow: -4px 0 20px rgba(0,0,0,0.15); padding: 5rem 1.5rem 2rem; transition: right 0.3s ease; }
         .mobile-nav.open .mobile-nav-panel { right: 0; }
-        .mobile-nav-panel a { display: block; font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-gray); transition: color 0.2s ease; }
+        .mobile-nav-panel a { display: block; font-family: var(--font-body); color: var(--dark-gray); text-decoration: none; font-weight: 500; font-size: var(--text-base); padding: 0.85rem 0; border-bottom: 1px solid var(--border-gray); transition: color 0.2s ease; }
         .mobile-nav-panel a:hover { color: var(--navy); }
-        .mobile-nav-panel .mobile-cta { display: block; background: var(--teal); color: var(--white); text-align: center; padding: 0.8rem 1.5rem; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; margin-top: 1.5rem; border-bottom: none; }
+        .mobile-nav-panel .mobile-cta { display: block; background: var(--teal); color: var(--white); text-align: center; padding: 0.8rem 1.5rem; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; font-size: var(--text-md); margin-top: 1.5rem; border-bottom: none; }
         .mobile-nav-panel .mobile-cta:hover { background: #008a80; color: var(--white); }
 
         .hero { position: relative; background: var(--navy); color: var(--white); padding: 11rem 2rem 6rem; text-align: center; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(0,113,188,0.35) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 80% 30%, rgba(0,169,157,0.2) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 60% 80%, rgba(46,49,146,0.6) 0%, transparent 50%); pointer-events: none; }
         .hero::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
         .hero .container { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
-        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.02em; }
-        .hero .lead { font-family: var(--font-body); font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; }
-        .credentials-badge { background: rgba(255,255,255,0.1); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 25px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin: 1.25rem 0 2rem; border: 1px solid rgba(255,255,255,0.22); letter-spacing: 0.01em; }
+        .hero h1 { font-size: var(--text-5xl); font-weight: 800; margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.02em; }
+        .hero .lead { font-family: var(--font-body); font-size: var(--text-lg); margin-bottom: 1rem; opacity: 0.92; }
+        .hero .sub { font-size: var(--text-base); max-width: 680px; margin: 0 auto; opacity: 0.88; font-family: var(--font-body); }
+        .credentials-badge { background: rgba(255,255,255,0.1); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 25px; font-size: var(--text-md); font-weight: 600; display: inline-block; margin: 1.25rem 0 2rem; border: 1px solid rgba(255,255,255,0.22); letter-spacing: 0.01em; }
         .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-        .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; border: none; cursor: pointer; font-size: 1rem; font-family: var(--font-heading); }
+        .btn-primary { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; border: none; cursor: pointer; font-size: var(--text-base); font-family: var(--font-heading); }
         .btn-primary:hover { background: #008a80; transform: translateY(-2px); }
-        .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; font-size: 1rem; font-family: var(--font-heading); }
+        .btn-secondary { background: transparent; color: var(--white); padding: 0.9rem 2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.25s ease; font-size: var(--text-base); font-family: var(--font-heading); }
         .btn-secondary:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
 
         .stats-bar { background: var(--white); border-bottom: 1px solid var(--border-gray); padding: 0; }
@@ -202,107 +211,130 @@
         .stat-item { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid var(--border-gray); position: relative; }
         .stat-item:last-child { border-right: none; }
         .stat-item::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 2px; }
-        .stat-number { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; color: var(--navy); display: block; letter-spacing: -0.03em; }
-        .stat-label { color: var(--medium-gray); font-size: 0.88rem; margin-top: 0.4rem; font-family: var(--font-body); line-height: 1.4; }
+        .stat-number { font-family: var(--font-heading); font-size: var(--text-4xl); font-weight: 800; color: var(--navy); display: block; letter-spacing: -0.03em; }
+        .stat-label { color: var(--medium-gray); font-size: var(--text-md); margin-top: 0.4rem; font-family: var(--font-body); line-height: 1.4; }
 
         .section { padding: 5rem 2rem; }
         .section.bg-light { background: var(--light-gray); }
         .container { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2.3rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
-        .section-header p { font-size: 1.05rem; color: var(--medium-gray); max-width: 600px; margin: 0 auto; font-family: var(--font-body); }
+        .section-header h2 { font-size: var(--text-4xl); color: var(--navy); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
+        .section-header p { font-size: var(--text-base); color: var(--medium-gray); max-width: 600px; margin: 0 auto; font-family: var(--font-body); }
 
         .about-content { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; max-width: 1000px; margin: 0 auto; }
         .profile-card { background: var(--white); border-radius: 10px; padding: 2rem; text-align: center; box-shadow: 0 4px 24px rgba(46,49,146,0.1); border: 1px solid var(--border-gray); }
         .profile-image { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.25rem; display: block; border: 4px solid var(--teal); }
-        .profile-card h3 { font-size: 1.4rem; color: var(--navy); margin-bottom: 0.3rem; }
-        .profile-title { color: var(--teal); font-weight: 600; margin-bottom: 1rem; font-size: 0.95rem; font-family: var(--font-heading); }
+        .profile-card h3 { font-size: var(--text-2xl); color: var(--navy); margin-bottom: 0.3rem; font-weight: 700; }
+        .profile-title { color: var(--teal-text); font-weight: 600; margin-bottom: 1rem; font-size: var(--text-md); font-family: var(--font-heading); }
         .credentials-list { text-align: left; margin-top: 1.25rem; list-style: none; }
-        .credentials-list li { color: var(--medium-gray); margin-bottom: 0.5rem; font-size: 0.88rem; padding-left: 1rem; position: relative; }
+        .credentials-list li { color: var(--medium-gray); margin-bottom: 0.5rem; font-size: var(--text-md); padding-left: 1rem; position: relative; }
         .credentials-list li::before { content: '•'; position: absolute; left: 0; color: var(--teal); }
-        .about-text h2 { font-size: 1.9rem; color: var(--navy); margin-bottom: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
-        .about-text h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; }
-
-        /* Unified card top accent — gradient navy to teal */
-        .accent-card { position: relative; }
-        .accent-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
+        .about-text h2 { font-size: var(--text-3xl); color: var(--navy); margin-bottom: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+        .about-text h3 { font-size: var(--text-lg); color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; }
+        .about-text p { color: var(--medium-gray); margin-bottom: 1.5rem; line-height: 1.75; font-size: var(--text-base); }
+        .about-text ul li { margin-bottom: 0.6rem; padding-left: 1.5rem; position: relative; font-size: var(--text-md); color: var(--medium-gray); }
+        .about-text ul li span { position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto; }
         .service-card { background: var(--white); padding: 2.25rem; border-radius: 10px; border: 1px solid var(--border-gray); transition: all 0.3s ease; position: relative; }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .service-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 1rem; font-weight: 600; }
+        .service-card h3 { font-size: var(--text-xl); color: var(--navy); margin-bottom: 1rem; font-weight: 600; padding-top: 0.25rem; }
         .service-card ul { list-style: none; }
-        .service-card li { color: var(--medium-gray); margin-bottom: 0.65rem; padding-left: 1.5rem; position: relative; line-height: 1.5; font-size: 0.93rem; }
+        .service-card li { color: var(--medium-gray); margin-bottom: 0.65rem; padding-left: 1.5rem; position: relative; line-height: 1.5; font-size: var(--text-md); }
         .service-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
         .industries-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
         .industry-card { background: var(--white); padding: 1.75rem; border-radius: 10px; border: 1px solid var(--border-gray); transition: all 0.3s ease; position: relative; }
         .industry-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .industry-card:hover { transform: translateY(-3px); box-shadow: 0 6px 22px rgba(0,0,0,0.09); }
-        .industry-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; font-size: 1rem; padding-top: 0.25rem; }
-        .industry-card p { color: var(--medium-gray); font-size: 0.9rem; line-height: 1.55; }
+        .industry-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-weight: 600; font-size: var(--text-lg); padding-top: 0.25rem; }
+        .industry-card p { color: var(--medium-gray); font-size: var(--text-md); line-height: 1.55; }
 
         .contact-section { background: var(--navy); color: var(--white); padding: 5rem 2rem; position: relative; overflow: hidden; }
         .contact-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 80% 20%, rgba(0,113,188,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(0,169,157,0.1) 0%, transparent 60%); pointer-events: none; }
         .contact-content { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-        .contact-section h2 { font-size: 2.3rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
+        .contact-section h2 { font-size: var(--text-4xl); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
+        .contact-section .lead { font-size: var(--text-lg); margin-bottom: 0.75rem; }
+        .contact-section .sub { opacity: 0.88; font-size: var(--text-base); }
         .contact-form { background: var(--white); padding: 2.5rem; border-radius: 10px; margin-top: 2.5rem; color: var(--dark-gray); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+        .contact-form h3 { color: var(--navy); margin-bottom: 1.5rem; text-align: center; font-size: var(--text-xl); font-weight: 600; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
         .form-group { margin-bottom: 1.25rem; }
-        .form-group label { display: block; margin-bottom: 0.45rem; font-weight: 500; color: var(--dark-gray); font-size: 0.9rem; font-family: var(--font-body); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.25s ease, box-shadow 0.25s ease; background: var(--white); color: var(--dark-gray); }
+        .form-group label { display: block; margin-bottom: 0.45rem; font-weight: 500; color: var(--dark-gray); font-size: var(--text-md); font-family: var(--font-body); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: var(--font-body); font-size: var(--text-base); transition: border-color 0.25s ease, box-shadow 0.25s ease; background: var(--white); color: var(--dark-gray); }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(46,49,146,0.15); }
         .form-group input[aria-invalid="true"], .form-group select[aria-invalid="true"], .form-group textarea[aria-invalid="true"] { border-color: #b91c1c; }
+        .form-foot-note { text-align: center; margin-top: 1rem; font-size: var(--text-md); color: var(--medium-gray); }
         .form-success { display: none; background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 8px; padding: 2rem; text-align: center; margin-top: 1rem; }
         .form-success.visible { display: block; }
-        .form-success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-        .form-success h4 { font-family: var(--font-heading); color: #166534; font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .form-success p { color: #15803d; font-size: 0.95rem; }
-        .form-error-msg { display: none; background: #fef2f2; border: 1.5px solid #f87171; border-radius: 6px; padding: 0.75rem 1rem; color: #b91c1c; font-size: 0.9rem; margin-bottom: 1rem; }
+        .form-success-icon { font-size: var(--text-4xl); margin-bottom: 0.75rem; }
+        .form-success h4 { font-family: var(--font-heading); color: #166534; font-size: var(--text-xl); margin-bottom: 0.5rem; }
+        .form-success p { color: #15803d; font-size: var(--text-base); }
+        .form-error-msg { display: none; background: #fef2f2; border: 1.5px solid #f87171; border-radius: 6px; padding: 0.75rem 1rem; color: #b91c1c; font-size: var(--text-md); margin-bottom: 1rem; }
         .form-error-msg.visible { display: block; }
 
         .footer { background: var(--woodsmoke); color: var(--white); padding: 3.5rem 2rem 1.5rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .footer-logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
+        .footer-logo { font-family: var(--font-heading); font-size: var(--text-2xl); font-weight: 700; color: var(--teal); margin-bottom: 0.5rem; }
+        .footer-tagline { font-size: var(--text-md); opacity: 0.85; margin-bottom: 1rem; }
         .footer a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
         .footer a:hover { color: var(--teal); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin: 2.5rem 0; text-align: left; }
+        .footer-col h4 { color: var(--teal); margin-bottom: 1rem; font-family: var(--font-heading); font-size: var(--text-base); font-weight: 600; }
+        .footer-col p { margin-bottom: 0.5rem; font-size: var(--text-md); }
+        .footer-col .muted { font-size: var(--text-sm); color: #aaa; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 1.5rem; text-align: center; }
+        .footer-bottom .meta { margin-bottom: 0.75rem; font-size: var(--text-md); opacity: 0.7; }
+        .footer-bottom .copy { opacity: 0.55; font-size: var(--text-md); }
+
         .problem-section { background: var(--light-gray); border-top: 4px solid var(--navy); }
         .problem-card { background: var(--white); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--amber); }
-        .problem-card h3 { color: var(--woodsmoke); margin-bottom: 0.75rem; font-size: 1.05rem; font-weight: 600; }
-        .problem-card p { color: var(--medium-gray); font-size: 0.93rem; }
+        .problem-card h3 { color: var(--woodsmoke); margin-bottom: 0.75rem; font-size: var(--text-lg); font-weight: 600; }
+        .problem-card p { color: var(--medium-gray); font-size: var(--text-md); }
+        .problem-callout { text-align: center; margin-top: 2rem; padding: 2rem; background: var(--white); border-radius: 10px; border: 2px solid var(--teal); }
+        .problem-callout h3 { color: var(--teal-text); margin-bottom: 0.75rem; font-size: var(--text-xl); font-weight: 600; }
+        .problem-callout p { color: var(--medium-gray); font-size: var(--text-base); line-height: 1.7; }
 
         .spec-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease; position: relative; }
         .spec-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
         .spec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
-        .spec-card h3 { color: var(--navy); margin-bottom: 1.25rem; font-weight: 600; font-size: 1.1rem; padding-top: 0.25rem; }
+        .spec-card h3 { color: var(--navy); margin-bottom: 1.25rem; font-weight: 600; font-size: var(--text-xl); padding-top: 0.25rem; }
+        .spec-card p { color: var(--medium-gray); margin-bottom: 1.25rem; font-size: var(--text-md); line-height: 1.6; }
         .spec-card ul { list-style: none; padding: 0; }
-        .spec-card li { margin-bottom: 0.65rem; padding-left: 1.5rem; position: relative; color: var(--medium-gray); font-size: 0.9rem; line-height: 1.5; }
+        .spec-card li { margin-bottom: 0.65rem; padding-left: 1.5rem; position: relative; color: var(--medium-gray); font-size: var(--text-md); line-height: 1.5; }
         .spec-card li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+        .spec-card .meta { margin-top: 1.25rem; font-size: var(--text-md); }
+        .spec-card .meta strong { color: var(--navy); }
+        .spec-card .meta span { color: var(--medium-gray); }
 
         .faq-item { border: 1px solid var(--border-gray); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
-        .faq-question { width: 100%; background: var(--light-gray); padding: 1.25rem 1.5rem; margin: 0; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; font-weight: 600; font-family: var(--font-heading); user-select: none; transition: background 0.2s ease; border: none; text-align: left; }
-        .faq-question:hover { background: #eef0f8; }
-        .faq-icon { font-size: 1.2rem; font-weight: 300; flex-shrink: 0; margin-left: 1rem; transition: transform 0.3s ease; }
+        .faq-question { width: 100%; background: var(--light-gray); padding: 1.25rem 1.5rem; margin: 0; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: var(--text-base); font-weight: 600; font-family: var(--font-heading); user-select: none; transition: background 0.2s ease; border: none; text-align: left; }
+        .faq-question:hover { background: #e3e7f0; }
+        .faq-icon { font-size: var(--text-xl); font-weight: 300; flex-shrink: 0; margin-left: 1rem; transition: transform 0.3s ease; }
         .faq-item.open .faq-icon { transform: rotate(45deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
         .faq-answer-inner { padding: 0 1.5rem 1.25rem; }
-        .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; font-size: 0.95rem; }
+        .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; font-size: var(--text-base); }
 
         .testimonial-card { background: var(--white); padding: 2.25rem; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; }
         .testimonial-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); border-radius: 10px 10px 0 0; }
-        .stars { margin-bottom: 1.25rem; font-size: 1rem; color: #f59e0b; letter-spacing: 2px; padding-top: 0.25rem; }
-        .testimonial-card blockquote { font-style: italic; color: var(--medium-gray); font-size: 1rem; line-height: 1.65; margin-bottom: 1.25rem; }
-        .testimonial-author { font-weight: 600; color: var(--navy); font-family: var(--font-heading); }
-        .testimonial-role { color: var(--medium-gray); font-size: 0.85rem; margin-top: 2px; }
+        .stars { margin-bottom: 1.25rem; font-size: var(--text-base); color: #f59e0b; letter-spacing: 2px; padding-top: 0.25rem; }
+        .testimonial-card blockquote { font-style: italic; color: var(--medium-gray); font-size: var(--text-base); line-height: 1.65; margin-bottom: 1.25rem; }
+        .testimonial-author { font-weight: 600; color: var(--navy); font-family: var(--font-heading); font-size: var(--text-base); }
+        .testimonial-role { color: var(--medium-gray); font-size: var(--text-md); margin-top: 2px; }
 
         .area-card { text-align: center; padding: 1.75rem; }
-        .area-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-size: 1.05rem; font-weight: 600; }
-        .area-card p { color: var(--medium-gray); font-size: 0.9rem; line-height: 1.6; }
+        .area-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-size: var(--text-lg); font-weight: 600; }
+        .area-card p { color: var(--medium-gray); font-size: var(--text-md); line-height: 1.6; }
+
+        .area-callout { background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center; }
+        .area-callout h3 { color: var(--teal-text); margin-bottom: 0.75rem; font-size: var(--text-xl); font-weight: 600; }
+        .area-callout p { color: var(--medium-gray); line-height: 1.7; max-width: 800px; margin: 0 auto; font-size: var(--text-base); }
 
         .cta-banner { text-align: center; padding: 2.5rem; background: var(--navy); color: var(--white); border-radius: 10px; }
-        .cta-banner h3 { margin-bottom: 0.75rem; font-size: 1.3rem; }
-        .cta-banner p { opacity: 0.88; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .cta-banner h3 { margin-bottom: 0.75rem; font-size: var(--text-xl); font-weight: 600; }
+        .cta-banner p { opacity: 0.9; margin-bottom: 1.5rem; font-size: var(--text-base); }
 
         @media (max-width: 768px) {
             .header-top { display: none; }
@@ -313,29 +345,30 @@
             .hamburger { display: flex; }
             .mobile-nav { display: block; pointer-events: none; }
             .mobile-nav.open { pointer-events: auto; }
-            .logo-svg { height: 34px; }
-            .logo-name { font-size: 1.15rem; }
-            .logo-sub { display: none; }
+            .logo-img { height: 42px; }
             .hero { padding: 5rem 1rem 3.5rem; }
-            .hero h1 { font-size: 1.85rem; }
-            .hero .lead { font-size: 0.97rem; }
-            .credentials-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .hero h1 { font-size: var(--text-3xl); }
+            .hero .lead { font-size: var(--text-base); }
+            .hero .sub { font-size: var(--text-md); }
+            .credentials-badge { font-size: var(--text-sm); padding: 0.5rem 1rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .stat-item { border-right: none; border-bottom: 1px solid var(--border-gray); }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border-gray); padding: 2rem 1rem; }
             .stat-item:nth-child(odd) { border-right: 1px solid var(--border-gray); }
             .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+            .stat-number { font-size: var(--text-3xl); }
             .section { padding: 3.5rem 1rem; }
-            .section-header h2 { font-size: 1.8rem; }
+            .section-header h2 { font-size: var(--text-3xl); }
             .about-content { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
             .profile-card { padding: 1.5rem; }
             .profile-image { width: 150px; height: 150px; }
             .credentials-list { text-align: left; }
+            .about-text h2 { font-size: var(--text-2xl); }
             .services-grid { grid-template-columns: 1fr; }
             .industries-grid { grid-template-columns: 1fr; }
             .contact-section { padding: 3.5rem 1rem; }
-            .contact-section h2 { font-size: 1.9rem; }
+            .contact-section h2 { font-size: var(--text-3xl); }
             .contact-form { padding: 1.5rem; }
             .form-row { grid-template-columns: 1fr; }
             .footer { padding: 2.5rem 1rem 1.5rem; }
@@ -366,18 +399,7 @@
         <div class="header-main">
             <div class="container">
                 <a href="#home" class="logo" aria-label="Real Strategy home">
-                    <svg class="logo-svg" viewBox="0 0 56 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                        <path d="M4 4 H30 Q46 4 46 20 Q46 33 33 36 L48 56 H36 L22 37 H16 V56 H4 Z M16 14 V28 H28 Q34 28 34 21 Q34 14 28 14 Z" fill="#1a1a1a"/>
-                        <rect x="4" y="4" width="9" height="11" fill="#2E3192"/>
-                        <rect x="4" y="15" width="9" height="11" fill="#0071BC"/>
-                        <rect x="4" y="26" width="9" height="10" fill="#00A99D"/>
-                        <rect x="4" y="4" width="2" height="33" fill="#1a1a1a"/>
-                        <rect x="4" y="37" width="12" height="19" fill="#1a1a1a"/>
-                    </svg>
-                    <div class="logo-text-wrap">
-                        <div class="logo-name"><strong>Real</strong><span>Strategy</span></div>
-                        <div class="logo-sub">Tax &amp; Accounting</div>
-                    </div>
+                    <img src="RealStrategy.png" alt="Real Strategy" class="logo-img">
                 </a>
                 <div class="nav-wrap">
                     <nav aria-label="Primary">
@@ -416,7 +438,7 @@
             <h1 class="reveal">Your accountant files taxes. We cut them.</h1>
             <p class="lead reveal reveal-delay-1">Proactive tax planning for real estate professionals, content creators, and tech startups — led by <a href="#about" style="color:var(--white);text-decoration:underline;">Shawn Choo, EA</a></p>
             <div class="credentials-badge reveal reveal-delay-2">Harvard Graduate &bull; Enrolled Agent &bull; 24-Hour Response Guarantee</div>
-            <p class="reveal reveal-delay-2" style="font-size:1.05rem;max-width:680px;margin:0 auto;opacity:0.9;font-family:var(--font-body);">Most tax professionals show up in April. We work with you year-round to make sure you're not leaving money on the table. Based in <a href="#san-diego-areas" style="color:var(--white);text-decoration:underline;">San Diego</a>, serving clients nationwide.</p>
+            <p class="sub reveal reveal-delay-2">Most tax professionals show up in April. We work with you year-round to make sure you're not leaving money on the table. Based in <a href="#san-diego-areas" style="color:var(--white);text-decoration:underline;">San Diego</a>, serving clients nationwide.</p>
             <div class="hero-buttons reveal reveal-delay-3">
                 <a href="#contact" class="btn-primary">Get a Free Tax Review</a>
                 <a href="#services" class="btn-secondary">See What We Do</a>
@@ -441,7 +463,7 @@
                 <div class="reveal reveal-delay-1 problem-card"><h3>"I only hear from them at tax time"</h3><p>By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
                 <div class="reveal reveal-delay-2 problem-card"><h3>"I can never get a straight answer"</h3><p>Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
             </div>
-            <div class="reveal" style="text-align:center;margin-top:2rem;padding:2rem;background:var(--white);border-radius:10px;border:2px solid var(--teal);"><h3 style="color:var(--teal);margin-bottom:0.75rem;">How Real Strategy works differently</h3><p style="color:var(--medium-gray);font-size:1rem;line-height:1.7;">We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
+            <div class="reveal problem-callout"><h3>How Real Strategy works differently</h3><p>We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
         </div>
     </section>
 
@@ -464,15 +486,15 @@
                 </div>
                 <div class="about-text reveal reveal-delay-1">
                     <h2>IRS-credentialed. Practically focused.</h2>
-                    <p style="color:var(--medium-gray);margin-bottom:1.5rem;line-height:1.75;font-size:0.97rem;">Shawn is an <strong>Enrolled Agent</strong> — the highest credential the IRS issues. That means he can represent clients directly before the IRS, not just prepare paperwork. Combined with a <strong>Harvard degree</strong> and 15+ years of hands-on practice, he brings a level of technical depth that most local firms don't.</p>
-                    <p style="color:var(--medium-gray);margin-bottom:1.75rem;line-height:1.75;font-size:0.97rem;">Real Strategy was built around the clients traditional firms don't serve well: real estate investors running 1031s and cost segregation, content creators with multi-platform income, and tech founders navigating equity comp and R&D credits. San Diego-based, but we work with clients across the country.</p>
+                    <p>Shawn is an <strong>Enrolled Agent</strong> — the highest credential the IRS issues. That means he can represent clients directly before the IRS, not just prepare paperwork. Combined with a <strong>Harvard degree</strong> and 15+ years of hands-on practice, he brings a level of technical depth that most local firms don't.</p>
+                    <p>Real Strategy was built around the clients traditional firms don't serve well: real estate investors running 1031s and cost segregation, content creators with multi-platform income, and tech founders navigating equity comp and R&D credits. San Diego-based, but we work with clients across the country.</p>
                     <h3>Why clients stay:</h3>
-                    <ul style="color:var(--medium-gray);list-style:none;padding:0;">
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>EA credential:</strong> Direct IRS representation, not just tax prep</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Specialized focus:</strong> Real estate, content creation, tech — not general practice</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Year-round access:</strong> Quarterly check-ins, not just April calls</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>24-hour guarantee:</strong> Always. Not "we'll get back to you soon"</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Flat, upfront pricing:</strong> You know the cost before we start</li>
+                    <ul style="list-style:none;padding:0;">
+                        <li><span aria-hidden="true">✓</span> <strong>EA credential:</strong> Direct IRS representation, not just tax prep</li>
+                        <li><span aria-hidden="true">✓</span> <strong>Specialized focus:</strong> Real estate, content creation, tech — not general practice</li>
+                        <li><span aria-hidden="true">✓</span> <strong>Year-round access:</strong> Quarterly check-ins, not just April calls</li>
+                        <li><span aria-hidden="true">✓</span> <strong>24-hour guarantee:</strong> Always. Not "we'll get back to you soon"</li>
+                        <li><span aria-hidden="true">✓</span> <strong>Flat, upfront pricing:</strong> You know the cost before we start</li>
                     </ul>
                 </div>
             </div>
@@ -499,7 +521,7 @@
                 <div class="area-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21 V7 L12 3 L20 7 V21 M4 21 H20 M9 21 V14 H15 V21 M9 10 H11 M13 10 H15"/></svg>Business Districts</h3><p><strong>Downtown, UTC, Sorrento Valley, Carlsbad</strong><br>Tech startups, biotech, SaaS, and professional services firms. We know the R&D credit landscape and equity comp well.</p></div>
                 <div class="area-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M2 21 H22 M4 21 V12 L8 9 L8 21 M10 21 V7 L15 4 L15 21 M17 21 V14 L21 11 L21 21"/></svg>Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
             </div>
-            <div class="reveal" style="background:var(--light-gray);padding:2rem;border-radius:10px;text-align:center;"><h3 style="color:var(--teal);margin-bottom:0.75rem;">California has its own rules — and we know them</h3><p style="color:var(--medium-gray);line-height:1.7;max-width:800px;margin:0 auto;font-size:0.95rem;">California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
+            <div class="reveal area-callout"><h3>California has its own rules — and we know them</h3><p>California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
         </div>
     </section>
 
@@ -507,9 +529,9 @@
         <div class="container">
             <div class="section-header reveal"><h2 id="who-heading">Who We Work With</h2><p>Three client types make up most of our practice — and each has its own tax playbook.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
-                <div class="spec-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12 L12 3 L21 12 M5 10 V21 H19 V10 M10 21 V15 H14 V21"/></svg>San Diego Real Estate Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">San Diego real estate is a different animal — high valuations, active short-term rental markets, and California's aggressive depreciation rules. We help investors and agents structure their activity correctly from the start.</p><ul><li>1031 Exchange Planning &amp; Execution</li><li>Cost Segregation Studies</li><li>Airbnb &amp; Short-Term Rental Optimization</li><li>Real Estate Professional Election</li><li>Property Tax Appeals &amp; Strategies</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Serving:</strong> <span style="color:var(--medium-gray);">La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe</span></div></div>
-                <div class="spec-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Content Creator Tax Specialist</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">YouTube revenue, brand deals, affiliate income, merch — each platform reports differently and has different deduction profiles. We've worked with creators at every stage and know how to structure this cleanly.</p><ul><li>Multi-Platform Revenue Optimization</li><li>Brand Partnership &amp; Sponsorship Deals</li><li>Home Studio &amp; Equipment Deductions</li><li>Intellectual Property Monetization</li><li>International Income &amp; Tax Treaties</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Expertise:</strong> <span style="color:var(--medium-gray);">YouTube, TikTok, Instagram, Twitch, Patreon, and emerging platforms</span></div></div>
-                <div class="spec-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></svg>San Diego Tech Startup Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">From choosing the right entity at formation to managing ISO/NSO exercises and R&D credits, we work with founders who need a tax advisor that can keep up with how fast things move.</p><ul><li>R&amp;D Tax Credits &amp; Incentives</li><li>Equity Compensation Planning (ISO, NSO, RSU)</li><li>Entity Structure Optimization</li><li>Fundraising &amp; Investor Relations</li><li>Exit Strategy Planning (M&amp;A, IPO)</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Focus Areas:</strong> <span style="color:var(--medium-gray);">SaaS, Biotech, FinTech, HealthTech, CleanTech, AI/ML, Cybersecurity</span></div></div>
+                <div class="spec-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12 L12 3 L21 12 M5 10 V21 H19 V10 M10 21 V15 H14 V21"/></svg>San Diego Real Estate Tax Expert</h3><p>San Diego real estate is a different animal — high valuations, active short-term rental markets, and California's aggressive depreciation rules. We help investors and agents structure their activity correctly from the start.</p><ul><li>1031 Exchange Planning &amp; Execution</li><li>Cost Segregation Studies</li><li>Airbnb &amp; Short-Term Rental Optimization</li><li>Real Estate Professional Election</li><li>Property Tax Appeals &amp; Strategies</li></ul><div class="meta"><strong>Serving:</strong> <span>La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe</span></div></div>
+                <div class="spec-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Content Creator Tax Specialist</h3><p>YouTube revenue, brand deals, affiliate income, merch — each platform reports differently and has different deduction profiles. We've worked with creators at every stage and know how to structure this cleanly.</p><ul><li>Multi-Platform Revenue Optimization</li><li>Brand Partnership &amp; Sponsorship Deals</li><li>Home Studio &amp; Equipment Deductions</li><li>Intellectual Property Monetization</li><li>International Income &amp; Tax Treaties</li></ul><div class="meta"><strong>Expertise:</strong> <span>YouTube, TikTok, Instagram, Twitch, Patreon, and emerging platforms</span></div></div>
+                <div class="spec-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></svg>San Diego Tech Startup Tax Expert</h3><p>From choosing the right entity at formation to managing ISO/NSO exercises and R&D credits, we work with founders who need a tax advisor that can keep up with how fast things move.</p><ul><li>R&amp;D Tax Credits &amp; Incentives</li><li>Equity Compensation Planning (ISO, NSO, RSU)</li><li>Entity Structure Optimization</li><li>Fundraising &amp; Investor Relations</li><li>Exit Strategy Planning (M&amp;A, IPO)</li></ul><div class="meta"><strong>Focus Areas:</strong> <span>SaaS, Biotech, FinTech, HealthTech, CleanTech, AI/ML, Cybersecurity</span></div></div>
             </div>
             <div class="cta-banner reveal" style="margin-top:3rem;"><h3>Not sure if we're the right fit?</h3><p>Book a free 30-minute call. We'll tell you honestly what we can do for your situation — and what it costs.</p><a href="#contact" class="btn-primary">Schedule a Free Call</a></div>
         </div>
@@ -557,10 +579,10 @@
     <section id="contact" class="contact-section" aria-labelledby="contact-heading">
         <div class="contact-content">
             <h2 class="reveal" id="contact-heading">Let's talk</h2>
-            <p class="reveal reveal-delay-1" style="font-size:1.1rem;margin-bottom:0.75rem;"><strong>Free 30-minute call</strong> — bring your situation, we'll tell you what we can actually do.</p>
-            <p class="reveal reveal-delay-1" style="opacity:0.88;font-size:0.95rem;">No pitch. No pressure. Upfront pricing if it's a good fit.</p>
+            <p class="lead reveal reveal-delay-1"><strong>Free 30-minute call</strong> — bring your situation, we'll tell you what we can actually do.</p>
+            <p class="sub reveal reveal-delay-1">No pitch. No pressure. Upfront pricing if it's a good fit.</p>
             <form class="contact-form reveal reveal-delay-2" id="contactForm" novalidate>
-                <h3 style="color:var(--navy);margin-bottom:1.5rem;text-align:center;">Book a Free Consultation</h3>
+                <h3>Book a Free Consultation</h3>
                 <div class="form-error-msg" id="formError" role="alert" aria-live="polite">Please fill in all required fields (First Name, Last Name, and Email).</div>
                 <div class="form-row">
                     <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" required autocomplete="given-name" aria-required="true" aria-describedby="formError"></div>
@@ -579,8 +601,8 @@
                     <select id="services" name="services"><option value="">What can we help you with?</option><option value="tax-preparation">Tax Preparation</option><option value="tax-planning">Tax Planning &amp; Strategy</option><option value="business-advisory">Business Advisory</option><option value="financial-planning">Financial Planning</option><option value="international-tax">International Tax</option><option value="real-estate-tax">Real Estate Tax Services</option><option value="multiple">Multiple Services</option><option value="consultation">General Consultation</option></select>
                 </div>
                 <div class="form-group"><label for="message">How can we help you?</label><textarea id="message" name="message" rows="4" placeholder="Please describe your situation, timeline, and any specific questions you have..."></textarea></div>
-                <button type="submit" class="btn-primary" style="width:100%;padding:1rem;font-size:1rem;">Send Message &amp; Schedule Consultation</button>
-                <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--medium-gray);">We'll respond within 24 hours to schedule your free consultation.</p>
+                <button type="submit" class="btn-primary" style="width:100%;padding:1rem;">Send Message &amp; Schedule Consultation</button>
+                <p class="form-foot-note">We'll respond within 24 hours to schedule your free consultation.</p>
             </form>
             <div class="form-success" id="formSuccess" role="status" aria-live="polite">
                 <div class="form-success-icon" aria-hidden="true">✅</div>
@@ -595,33 +617,33 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">Real Strategy Tax &amp; Accounting</div>
-            <p style="margin-bottom:1rem;font-size:0.9rem;opacity:0.85;">Tax planning for real estate, content creators &amp; tech startups | Shawn Choo, EA</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin:2.5rem 0;text-align:left;">
-                <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">Contact Info</h4>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;"><a href="mailto:shawn.choo@realstrategy.co">shawn.choo@realstrategy.co</a></p>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;"><a href="tel:+16193208319">(619) 320-8319</a></p>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">San Diego, CA</p>
-                    <p style="font-size:0.85rem;color:#aaa;">24-Hour Response Guarantee</p>
+            <p class="footer-tagline">Tax planning for real estate, content creators &amp; tech startups | Shawn Choo, EA</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><a href="mailto:shawn.choo@realstrategy.co">shawn.choo@realstrategy.co</a></p>
+                    <p><a href="tel:+16193208319">(619) 320-8319</a></p>
+                    <p>San Diego, CA</p>
+                    <p class="muted">24-Hour Response Guarantee</p>
                 </div>
-                <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">San Diego Areas</h4>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">La Jolla &bull; Del Mar &bull; Carlsbad</p>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">Encinitas &bull; Solana Beach &bull; UTC</p>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">Poway &bull; Escondido &bull; Rancho Santa Fe</p>
-                    <p style="font-size:0.85rem;color:#aaa;">+ Nationwide Service</p>
+                <div class="footer-col">
+                    <h4>San Diego Areas</h4>
+                    <p>La Jolla &bull; Del Mar &bull; Carlsbad</p>
+                    <p>Encinitas &bull; Solana Beach &bull; UTC</p>
+                    <p>Poway &bull; Escondido &bull; Rancho Santa Fe</p>
+                    <p class="muted">+ Nationwide Service</p>
                 </div>
-                <div>
-                    <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">Specializations</h4>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">Real Estate Tax Planning</p>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">Content Creator Optimization</p>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">Tech Startup Accounting</p>
-                    <p style="margin-bottom:0.4rem;font-size:0.88rem;">International Tax Compliance</p>
+                <div class="footer-col">
+                    <h4>Specializations</h4>
+                    <p>Real Estate Tax Planning</p>
+                    <p>Content Creator Optimization</p>
+                    <p>Tech Startup Accounting</p>
+                    <p>International Tax Compliance</p>
                 </div>
             </div>
-            <div style="border-top:1px solid #333;padding-top:1.5rem;text-align:center;">
-                <p style="margin-bottom:0.75rem;font-size:0.85rem;opacity:0.7;"><strong>San Diego Tax Expert</strong> | Tax Planning | Business Advisory | Real Estate Specialist | Content Creator Expert</p>
-                <p style="opacity:0.55;font-size:0.85rem;">&copy; 2026 Real Strategy Tax &amp; Accounting. All rights reserved. | <span style="margin:0 0.5rem;">California Tax Professional</span> | <span style="margin:0 0.5rem;">IRS Enrolled Agent</span></p>
+            <div class="footer-bottom">
+                <p class="meta"><strong>San Diego Tax Expert</strong> | Tax Planning | Business Advisory | Real Estate Specialist | Content Creator Expert</p>
+                <p class="copy">&copy; 2026 Real Strategy Tax &amp; Accounting. All rights reserved. | <span style="margin:0 0.5rem;">California Tax Professional</span> | <span style="margin:0 0.5rem;">IRS Enrolled Agent</span></p>
             </div>
         </div>
     </footer>
