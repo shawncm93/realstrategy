@@ -119,11 +119,65 @@
         h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
         .stat-number,.section-header h2,.cta-button,.btn-primary,.btn-secondary,.credentials-badge { font-family: var(--font-heading); }
 
+        /* Skip link — keyboard accessibility */
+        .skip-link {
+            position: absolute; top: -40px; left: 0;
+            background: var(--navy); color: var(--white);
+            padding: 0.75rem 1.25rem; text-decoration: none;
+            font-family: var(--font-heading); font-weight: 600;
+            font-size: 0.95rem; z-index: 9999;
+            border-radius: 0 0 6px 0;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Focus rings — visible keyboard focus */
+        :focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+        .hero a:focus-visible, .contact-section a:focus-visible {
+            outline-color: var(--white);
+        }
+        .btn-primary:focus-visible, .cta-button:focus-visible {
+            outline-color: var(--navy);
+            outline-offset: 3px;
+        }
+        .form-group input:focus-visible,
+        .form-group select:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: none;
+        }
+
+        /* Section heading icon */
+        .section-icon {
+            width: 20px; height: 20px;
+            display: inline-block; vertical-align: -3px;
+            margin-right: 0.5rem; flex-shrink: 0;
+        }
+        .area-card h3 { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .spec-card h3 { display: flex; align-items: center; gap: 0.5rem; }
+
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+            .service-card:hover, .industry-card:hover, .spec-card:hover, .area-card:hover,
+            .testimonial-card:hover, .btn-primary:hover, .btn-secondary:hover, .cta-button:hover {
+                transform: none;
+            }
+        }
 
         .header { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: fixed; top: 0; width: 100%; z-index: 1000; transition: box-shadow 0.3s ease; }
         .header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
@@ -224,8 +278,9 @@
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
         .form-group { margin-bottom: 1.25rem; }
         .form-group label { display: block; margin-bottom: 0.45rem; font-weight: 500; color: var(--dark-gray); font-size: 0.9rem; font-family: var(--font-body); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.25s ease; background: var(--white); color: var(--dark-gray); }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(46,49,146,0.08); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border-gray); border-radius: 6px; font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.25s ease, box-shadow 0.25s ease; background: var(--white); color: var(--dark-gray); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(46,49,146,0.15); }
+        .form-group input[aria-invalid="true"], .form-group select[aria-invalid="true"], .form-group textarea[aria-invalid="true"] { border-color: #b91c1c; }
         .form-success { display: none; background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 8px; padding: 2rem; text-align: center; margin-top: 1rem; }
         .form-success.visible { display: block; }
         .form-success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
@@ -309,20 +364,22 @@
 </head>
 <body>
 
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header class="header" id="site-header">
         <div class="header-top">
             <div class="container">
                 <div class="contact-info">
-                    <span>📍 San Diego, CA | Serving La Jolla, Carlsbad, Del Mar</span>
-                    <span>📧 shawn.choo@realstrategy.co | 📞 (619) 320-8319</span>
+                    <span>San Diego, CA · Serving La Jolla, Carlsbad, Del Mar</span>
+                    <span>shawn.choo@realstrategy.co · (619) 320-8319</span>
                 </div>
-                <div>24-Hour Response Guarantee | Nationwide Service</div>
+                <div>24-Hour Response Guarantee · Nationwide Service</div>
             </div>
         </div>
         <div class="header-main">
             <div class="container">
-                <a href="#home" class="logo">
-                    <svg class="logo-svg" viewBox="0 0 56 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Real Strategy logo">
+                <a href="#home" class="logo" aria-label="Real Strategy home">
+                    <svg class="logo-svg" viewBox="0 0 56 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                         <path d="M4 4 H30 Q46 4 46 20 Q46 33 33 36 L48 56 H36 L22 37 H16 V56 H4 Z M16 14 V28 H28 Q34 28 34 21 Q34 14 28 14 Z" fill="#1a1a1a"/>
                         <rect x="4" y="4" width="9" height="11" fill="#2E3192"/>
                         <rect x="4" y="15" width="9" height="11" fill="#0071BC"/>
@@ -336,7 +393,7 @@
                     </div>
                 </a>
                 <div class="nav-wrap">
-                    <nav>
+                    <nav aria-label="Primary">
                         <ul>
                             <li><a href="#about">About</a></li>
                             <li><a href="#services">Services</a></li>
@@ -346,7 +403,7 @@
                         </ul>
                     </nav>
                     <a href="#contact" class="cta-button desktop-cta">Schedule Consultation</a>
-                    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu">
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
                         <span></span><span></span><span></span>
                     </button>
                 </div>
@@ -354,7 +411,7 @@
         </div>
     </header>
 
-    <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" role="dialog" aria-modal="true">
         <div class="mobile-nav-panel">
             <a href="#about" class="mobile-nav-link">About</a>
             <a href="#services" class="mobile-nav-link">Services</a>
@@ -364,6 +421,8 @@
             <a href="#contact" class="mobile-cta mobile-nav-link">Schedule Consultation</a>
         </div>
     </div>
+
+    <main id="main">
 
     <section id="home" class="hero">
         <div class="container">
@@ -378,7 +437,7 @@
         </div>
     </section>
 
-    <section class="stats-bar">
+    <section class="stats-bar" aria-label="Key statistics">
         <div class="stats-grid">
             <div class="stat-item reveal"><span class="stat-number">$15K+</span><div class="stat-label">Average tax savings in year one</div></div>
             <div class="stat-item reveal reveal-delay-1"><span class="stat-number">24hrs</span><div class="stat-label">Response guarantee — always</div></div>
@@ -387,24 +446,24 @@
         </div>
     </section>
 
-    <section class="section problem-section">
+    <section class="section problem-section" aria-labelledby="problem-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>Sound familiar?</h2><p>A lot of business owners come to us after years of reactive tax prep. The frustrations are usually the same.</p></div>
+            <div class="section-header reveal"><h2 id="problem-heading">Sound familiar?</h2><p>A lot of business owners come to us after years of reactive tax prep. The frustrations are usually the same.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;margin-top:2rem;">
-                <div class="reveal" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "My accountant doesn't get my business"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
-                <div class="reveal reveal-delay-1" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "I only hear from them at tax time"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
-                <div class="reveal reveal-delay-2" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">❌ "I can never get a straight answer"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
+                <div class="reveal" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"My accountant doesn't get my business"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Real estate investing, content creation, and platform income have their own tax rules. Generic advice leaves money on the table.</p></div>
+                <div class="reveal reveal-delay-1" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"I only hear from them at tax time"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">By the time April rolls around, most of your planning options are gone. Real tax savings happen during the year, not after it.</p></div>
+                <div class="reveal reveal-delay-2" style="background:var(--white);padding:2rem;border-radius:10px;border-left:4px solid #dc2626;"><h3 style="color:#dc2626;margin-bottom:0.75rem;">"I can never get a straight answer"</h3><p style="color:var(--medium-gray);font-size:0.93rem;">Questions shouldn't take a week to answer. We guarantee a response within 24 hours — usually same day.</p></div>
             </div>
             <div class="reveal" style="text-align:center;margin-top:2rem;padding:2rem;background:var(--white);border-radius:10px;border:2px solid var(--teal);"><h3 style="color:var(--teal);margin-bottom:0.75rem;">How Real Strategy works differently</h3><p style="color:var(--medium-gray);font-size:1rem;line-height:1.7;">We work with you throughout the year — reviewing income, running projections, and making adjustments before deadlines hit. The result: clients typically save <strong>$15,000+ in year one</strong> and keep finding savings from there.</p></div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section" aria-labelledby="about-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>About Shawn</h2><p>EA. Harvard grad. 15+ years helping business owners pay less tax, legally.</p></div>
+            <div class="section-header reveal"><h2 id="about-heading">About Shawn</h2><p>EA. Harvard grad. 15+ years helping business owners pay less tax, legally.</p></div>
             <div class="about-content">
                 <div class="profile-card reveal">
-                    <img src="Headshot.jfif" alt="Shawn Choo EA - San Diego Tax Expert and Enrolled Agent" class="profile-image">
+                    <img src="Headshot.jfif" alt="Shawn Choo, Enrolled Agent and Managing Partner of Real Strategy" class="profile-image">
                     <h3>Shawn Choo</h3>
                     <div class="profile-title">Managing Partner, EA</div>
                     <ul class="credentials-list">
@@ -422,20 +481,20 @@
                     <p style="color:var(--medium-gray);margin-bottom:1.75rem;line-height:1.75;font-size:0.97rem;">Real Strategy was built around the clients traditional firms don't serve well: real estate investors running 1031s and cost segregation, content creators with multi-platform income, and tech founders navigating equity comp and R&D credits. San Diego-based, but we work with clients across the country.</p>
                     <h3>Why clients stay:</h3>
                     <ul style="color:var(--medium-gray);list-style:none;padding:0;">
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;">✓</span> <strong>EA credential:</strong> Direct IRS representation, not just tax prep</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;">✓</span> <strong>Specialized focus:</strong> Real estate, content creation, tech — not general practice</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;">✓</span> <strong>Year-round access:</strong> Quarterly check-ins, not just April calls</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;">✓</span> <strong>24-hour guarantee:</strong> Always. Not "we'll get back to you soon"</li>
-                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;">✓</span> <strong>Flat, upfront pricing:</strong> You know the cost before we start</li>
+                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>EA credential:</strong> Direct IRS representation, not just tax prep</li>
+                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Specialized focus:</strong> Real estate, content creation, tech — not general practice</li>
+                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Year-round access:</strong> Quarterly check-ins, not just April calls</li>
+                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>24-hour guarantee:</strong> Always. Not "we'll get back to you soon"</li>
+                        <li style="margin-bottom:0.6rem;padding-left:1.5rem;position:relative;font-size:0.93rem;"><span style="position:absolute;left:0;color:var(--teal);font-weight:700;" aria-hidden="true">✓</span> <strong>Flat, upfront pricing:</strong> You know the cost before we start</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section bg-light">
+    <section id="services" class="section bg-light" aria-labelledby="services-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>What We Do</h2><p>Tax planning, preparation, and business advisory — with a focus on year-round strategy, not just April filing.</p></div>
+            <div class="section-header reveal"><h2 id="services-heading">What We Do</h2><p>Tax planning, preparation, and business advisory — with a focus on year-round strategy, not just April filing.</p></div>
             <div class="services-grid">
                 <div class="service-card reveal"><h3>Tax Planning &amp; Preparation</h3><ul><li>Individual &amp; business tax returns</li><li>Multi-state tax optimization</li><li>Quarterly estimated payments</li><li>Tax projection &amp; planning</li><li>IRS representation</li><li>Estate &amp; gift tax planning</li></ul></div>
                 <div class="service-card reveal reveal-delay-1"><h3>Business Advisory Services</h3><ul><li>Entity structure optimization</li><li>Financial statement preparation</li><li>Cash flow management</li><li>Business valuation</li><li>Merger &amp; acquisition support</li><li>Strategic planning</li></ul></div>
@@ -445,33 +504,33 @@
         </div>
     </section>
 
-    <section id="san-diego-areas" class="section">
+    <section id="san-diego-areas" class="section" aria-labelledby="areas-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>Based in San Diego. Working nationwide.</h2><p>We know the local market, the California-specific rules, and the neighborhoods our clients are building businesses in.</p></div>
+            <div class="section-header reveal"><h2 id="areas-heading">Based in San Diego. Working nationwide.</h2><p>We know the local market, the California-specific rules, and the neighborhoods our clients are building businesses in.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-bottom:3rem;">
-                <div class="area-card reveal"><h3>🏖️ Coastal Communities</h3><p><strong>La Jolla, Del Mar, Solana Beach, Encinitas</strong><br>Mostly real estate investors, high-income professionals, and business owners navigating California's tax complexity.</p></div>
-                <div class="area-card reveal reveal-delay-1"><h3>🏢 Business Districts</h3><p><strong>Downtown, UTC, Sorrento Valley, Carlsbad</strong><br>Tech startups, biotech, SaaS, and professional services firms. We know the R&D credit landscape and equity comp well.</p></div>
-                <div class="area-card reveal reveal-delay-2"><h3>🏡 Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
+                <div class="area-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2 L20 10 L18 12 L12 6 L6 12 L4 10 Z M4 14 L20 14 M4 18 L20 18 M4 22 L20 22"/></svg>Coastal Communities</h3><p><strong>La Jolla, Del Mar, Solana Beach, Encinitas</strong><br>Mostly real estate investors, high-income professionals, and business owners navigating California's tax complexity.</p></div>
+                <div class="area-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21 V7 L12 3 L20 7 V21 M4 21 H20 M9 21 V14 H15 V21 M9 10 H11 M13 10 H15"/></svg>Business Districts</h3><p><strong>Downtown, UTC, Sorrento Valley, Carlsbad</strong><br>Tech startups, biotech, SaaS, and professional services firms. We know the R&D credit landscape and equity comp well.</p></div>
+                <div class="area-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12 L12 3 L21 12 M5 10 V21 H19 V10 M10 21 V15 H14 V21"/></svg>Residential Areas</h3><p><strong>Poway, Escondido, Rancho Santa Fe, Scripps Ranch</strong><br>Small business owners, solopreneurs, and families with rental properties or side income streams.</p></div>
             </div>
             <div class="reveal" style="background:var(--light-gray);padding:2rem;border-radius:10px;text-align:center;"><h3 style="color:var(--teal);margin-bottom:0.75rem;">California has its own rules — and we know them</h3><p style="color:var(--medium-gray);line-height:1.7;max-width:800px;margin:0 auto;font-size:0.95rem;">California doesn't conform to federal bonus depreciation. The FTB has different filing requirements than the IRS. The $800 minimum franchise tax catches people off guard. These aren't edge cases — they come up constantly. We factor California-specific law into every strategy we build.</p></div>
         </div>
     </section>
 
-    <section class="section bg-light">
+    <section class="section bg-light" aria-labelledby="who-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>Who We Work With</h2><p>Three client types make up most of our practice — and each has its own tax playbook.</p></div>
+            <div class="section-header reveal"><h2 id="who-heading">Who We Work With</h2><p>Three client types make up most of our practice — and each has its own tax playbook.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
-                <div class="spec-card reveal"><h3>🏠 San Diego Real Estate Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">San Diego real estate is a different animal — high valuations, active short-term rental markets, and California's aggressive depreciation rules. We help investors and agents structure their activity correctly from the start.</p><ul><li>1031 Exchange Planning &amp; Execution</li><li>Cost Segregation Studies</li><li>Airbnb &amp; Short-Term Rental Optimization</li><li>Real Estate Professional Election</li><li>Property Tax Appeals &amp; Strategies</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Serving:</strong> <span style="color:var(--medium-gray);">La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe</span></div></div>
-                <div class="spec-card reveal reveal-delay-1"><h3>📱 Content Creator Tax Specialist</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">YouTube revenue, brand deals, affiliate income, merch — each platform reports differently and has different deduction profiles. We've worked with creators at every stage and know how to structure this cleanly.</p><ul><li>Multi-Platform Revenue Optimization</li><li>Brand Partnership &amp; Sponsorship Deals</li><li>Home Studio &amp; Equipment Deductions</li><li>Intellectual Property Monetization</li><li>International Income &amp; Tax Treaties</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Expertise:</strong> <span style="color:var(--medium-gray);">YouTube, TikTok, Instagram, Twitch, Patreon, and emerging platforms</span></div></div>
-                <div class="spec-card reveal reveal-delay-2"><h3>💻 San Diego Tech Startup Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">From choosing the right entity at formation to managing ISO/NSO exercises and R&D credits, we work with founders who need a tax advisor that can keep up with how fast things move.</p><ul><li>R&amp;D Tax Credits &amp; Incentives</li><li>Equity Compensation Planning (ISO, NSO, RSU)</li><li>Entity Structure Optimization</li><li>Fundraising &amp; Investor Relations</li><li>Exit Strategy Planning (M&amp;A, IPO)</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Focus Areas:</strong> <span style="color:var(--medium-gray);">SaaS, Biotech, FinTech, HealthTech, CleanTech, AI/ML, Cybersecurity</span></div></div>
+                <div class="spec-card reveal"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12 L12 3 L21 12 M5 10 V21 H19 V10 M10 21 V15 H14 V21"/></svg>San Diego Real Estate Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">San Diego real estate is a different animal — high valuations, active short-term rental markets, and California's aggressive depreciation rules. We help investors and agents structure their activity correctly from the start.</p><ul><li>1031 Exchange Planning &amp; Execution</li><li>Cost Segregation Studies</li><li>Airbnb &amp; Short-Term Rental Optimization</li><li>Real Estate Professional Election</li><li>Property Tax Appeals &amp; Strategies</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Serving:</strong> <span style="color:var(--medium-gray);">La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe</span></div></div>
+                <div class="spec-card reveal reveal-delay-1"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Content Creator Tax Specialist</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">YouTube revenue, brand deals, affiliate income, merch — each platform reports differently and has different deduction profiles. We've worked with creators at every stage and know how to structure this cleanly.</p><ul><li>Multi-Platform Revenue Optimization</li><li>Brand Partnership &amp; Sponsorship Deals</li><li>Home Studio &amp; Equipment Deductions</li><li>Intellectual Property Monetization</li><li>International Income &amp; Tax Treaties</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Expertise:</strong> <span style="color:var(--medium-gray);">YouTube, TikTok, Instagram, Twitch, Patreon, and emerging platforms</span></div></div>
+                <div class="spec-card reveal reveal-delay-2"><h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></svg>San Diego Tech Startup Tax Expert</h3><p style="color:var(--medium-gray);margin-bottom:1.25rem;font-size:0.9rem;line-height:1.6;">From choosing the right entity at formation to managing ISO/NSO exercises and R&D credits, we work with founders who need a tax advisor that can keep up with how fast things move.</p><ul><li>R&amp;D Tax Credits &amp; Incentives</li><li>Equity Compensation Planning (ISO, NSO, RSU)</li><li>Entity Structure Optimization</li><li>Fundraising &amp; Investor Relations</li><li>Exit Strategy Planning (M&amp;A, IPO)</li></ul><div style="margin-top:1.25rem;font-size:0.85rem;"><strong style="color:var(--navy);">Focus Areas:</strong> <span style="color:var(--medium-gray);">SaaS, Biotech, FinTech, HealthTech, CleanTech, AI/ML, Cybersecurity</span></div></div>
             </div>
             <div class="cta-banner reveal" style="margin-top:3rem;"><h3>Not sure if we're the right fit?</h3><p>Book a free 30-minute call. We'll tell you honestly what we can do for your situation — and what it costs.</p><a href="#contact" class="btn-primary">Schedule a Free Call</a></div>
         </div>
     </section>
 
-    <section id="industries" class="section">
+    <section id="industries" class="section" aria-labelledby="industries-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>Industries We Serve</h2><p>We work best with clients who have complexity — multiple income streams, real assets, or business structures that need ongoing attention.</p></div>
+            <div class="section-header reveal"><h2 id="industries-heading">Industries We Serve</h2><p>We work best with clients who have complexity — multiple income streams, real assets, or business structures that need ongoing attention.</p></div>
             <div class="industries-grid">
                 <div class="industry-card reveal"><h3>Real Estate Professionals</h3><p>Agents, investors, and landlords. Cost segregation, 1031 exchanges, short-term rental rules, and the real estate professional election — we've run these scenarios hundreds of times.</p></div>
                 <div class="industry-card reveal reveal-delay-1"><h3>Content Creators &amp; Influencers</h3><p>Multi-platform income, brand deals, home office deductions, and S-Corp structuring once you're earning enough to justify it. We work with creators at every stage.</p></div>
@@ -483,45 +542,45 @@
         </div>
     </section>
 
-    <section class="section bg-light">
+    <section class="section bg-light" aria-labelledby="testimonials-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>What clients say</h2><p>A few words from people we've worked with.</p></div>
+            <div class="section-header reveal"><h2 id="testimonials-heading">What clients say</h2><p>A few words from people we've worked with.</p></div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem;">
-                <div class="testimonial-card reveal"><div class="stars">★★★★★</div><blockquote>"Shawn saved us over $18,000 in our first year. Unlike our previous accountant, he actually understands our Airbnb business and helped us implement strategies we never knew existed."</blockquote><div class="testimonial-author">Sarah M.</div><div class="testimonial-role">Real Estate Investor, La Jolla</div></div>
-                <div class="testimonial-card reveal reveal-delay-1"><div class="stars">★★★★★</div><blockquote>"Finally found a tax expert who gets content creation! Shawn structured my business perfectly and responds to questions same day. Worth every penny."</blockquote><div class="testimonial-author">Mike C.</div><div class="testimonial-role">YouTube Creator, 2.1M Subscribers</div></div>
-                <div class="testimonial-card reveal reveal-delay-2"><div class="stars">★★★★★</div><blockquote>"Proactive tax planning throughout the year instead of just filing taxes. The quarterly check-ins alone have saved us more than we pay in fees."</blockquote><div class="testimonial-author">Jennifer R.</div><div class="testimonial-role">Tech Consultant, Carlsbad</div></div>
+                <div class="testimonial-card reveal"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Shawn saved us over $18,000 in our first year. Unlike our previous accountant, he actually understands our Airbnb business and helped us implement strategies we never knew existed."</blockquote><div class="testimonial-author">Sarah M.</div><div class="testimonial-role">Real Estate Investor, La Jolla</div></div>
+                <div class="testimonial-card reveal reveal-delay-1"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Finally found a tax expert who gets content creation! Shawn structured my business perfectly and responds to questions same day. Worth every penny."</blockquote><div class="testimonial-author">Mike C.</div><div class="testimonial-role">YouTube Creator, 2.1M Subscribers</div></div>
+                <div class="testimonial-card reveal reveal-delay-2"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Proactive tax planning throughout the year instead of just filing taxes. The quarterly check-ins alone have saved us more than we pay in fees."</blockquote><div class="testimonial-author">Jennifer R.</div><div class="testimonial-role">Tech Consultant, Carlsbad</div></div>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" aria-labelledby="faq-heading">
         <div class="container">
-            <div class="section-header reveal"><h2>Common questions</h2><p>Straightforward answers to things people ask before reaching out.</p></div>
+            <div class="section-header reveal"><h2 id="faq-heading">Common questions</h2><p>Straightforward answers to things people ask before reaching out.</p></div>
             <div style="max-width:800px;margin:0 auto;">
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What makes Real Strategy different from other San Diego tax professionals?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>A few things. We specialize in business models that most accountants don't know well — real estate investors, content creators, tech founders. We work with you year-round instead of showing up at tax time. And you can actually reach us: <strong>24-hour response guaranteed</strong>, most messages answered same day.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">Do you serve businesses outside of San Diego?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. We're based in San Diego and know California law well, but we work with clients across the country. Most of our client relationships are fully remote — video calls, a shared client portal, and quick turnaround on questions.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What areas of San Diego do you serve?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>All of San Diego County — <strong>La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe, Poway, Escondido, UTC, Sorrento Valley</strong>, downtown, and everywhere in between. In-person meetings available; most clients prefer video.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How much can I save with professional tax planning?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>It depends on your income, structure, and what's already been done. Clients new to proactive planning typically save <strong>$10,000–$20,000+ in year one</strong>. We'll give you a realistic estimate in your first consultation — no vague promises.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">What industries do you specialize in?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Real estate investors and agents, content creators, tech and AI startups, platform/gig economy businesses, professional services, and international clients. If your tax situation is complicated, that's usually a good sign we can help.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false">How quickly do you respond to client questions?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>We guarantee a response within <strong>24 hours</strong>. In practice, most messages get a reply the same day. This matters more than people expect — tax questions often come up when you're making a decision, not in April.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-1-panel" id="faq-1-btn">What makes Real Strategy different from other San Diego tax professionals?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-1-panel" role="region" aria-labelledby="faq-1-btn"><div class="faq-answer-inner"><p>A few things. We specialize in business models that most accountants don't know well — real estate investors, content creators, tech founders. We work with you year-round instead of showing up at tax time. And you can actually reach us: <strong>24-hour response guaranteed</strong>, most messages answered same day.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-2-panel" id="faq-2-btn">Do you serve businesses outside of San Diego?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-2-panel" role="region" aria-labelledby="faq-2-btn"><div class="faq-answer-inner"><p>Yes. We're based in San Diego and know California law well, but we work with clients across the country. Most of our client relationships are fully remote — video calls, a shared client portal, and quick turnaround on questions.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-3-panel" id="faq-3-btn">What areas of San Diego do you serve?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-3-panel" role="region" aria-labelledby="faq-3-btn"><div class="faq-answer-inner"><p>All of San Diego County — <strong>La Jolla, Del Mar, Carlsbad, Encinitas, Solana Beach, Rancho Santa Fe, Poway, Escondido, UTC, Sorrento Valley</strong>, downtown, and everywhere in between. In-person meetings available; most clients prefer video.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-4-panel" id="faq-4-btn">How much can I save with professional tax planning?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-4-panel" role="region" aria-labelledby="faq-4-btn"><div class="faq-answer-inner"><p>It depends on your income, structure, and what's already been done. Clients new to proactive planning typically save <strong>$10,000–$20,000+ in year one</strong>. We'll give you a realistic estimate in your first consultation — no vague promises.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-5-panel" id="faq-5-btn">What industries do you specialize in?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-5-panel" role="region" aria-labelledby="faq-5-btn"><div class="faq-answer-inner"><p>Real estate investors and agents, content creators, tech and AI startups, platform/gig economy businesses, professional services, and international clients. If your tax situation is complicated, that's usually a good sign we can help.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-6-panel" id="faq-6-btn">How quickly do you respond to client questions?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-6-panel" role="region" aria-labelledby="faq-6-btn"><div class="faq-answer-inner"><p>We guarantee a response within <strong>24 hours</strong>. In practice, most messages get a reply the same day. This matters more than people expect — tax questions often come up when you're making a decision, not in April.</p></div></div></div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
         <div class="contact-content">
-            <h2 class="reveal">Let's talk</h2>
+            <h2 class="reveal" id="contact-heading">Let's talk</h2>
             <p class="reveal reveal-delay-1" style="font-size:1.1rem;margin-bottom:0.75rem;"><strong>Free 30-minute call</strong> — bring your situation, we'll tell you what we can actually do.</p>
             <p class="reveal reveal-delay-1" style="opacity:0.88;font-size:0.95rem;">No pitch. No pressure. Upfront pricing if it's a good fit.</p>
             <form class="contact-form reveal reveal-delay-2" id="contactForm" novalidate>
                 <h3 style="color:var(--navy);margin-bottom:1.5rem;text-align:center;">Book a Free Consultation</h3>
-                <div class="form-error-msg" id="formError">Please fill in all required fields (First Name, Last Name, and Email).</div>
+                <div class="form-error-msg" id="formError" role="alert" aria-live="polite">Please fill in all required fields (First Name, Last Name, and Email).</div>
                 <div class="form-row">
-                    <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" required autocomplete="given-name"></div>
-                    <div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" name="lastName" required autocomplete="family-name"></div>
+                    <div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="firstName" required autocomplete="given-name" aria-required="true" aria-describedby="formError"></div>
+                    <div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" name="lastName" required autocomplete="family-name" aria-required="true" aria-describedby="formError"></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required autocomplete="email"></div>
+                    <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required autocomplete="email" aria-required="true" aria-describedby="formError"></div>
                     <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
                 </div>
                 <div class="form-group">
@@ -536,13 +595,15 @@
                 <button type="submit" class="btn-primary" style="width:100%;padding:1rem;font-size:1rem;">Send Message &amp; Schedule Consultation</button>
                 <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--medium-gray);">We'll respond within 24 hours to schedule your free consultation.</p>
             </form>
-            <div class="form-success" id="formSuccess">
-                <div class="form-success-icon">✅</div>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+                <div class="form-success-icon" aria-hidden="true">✅</div>
                 <h4>Message Received!</h4>
                 <p>Your email client is opening with a pre-filled message to shawn.choo@realstrategy.co.<br>We guarantee a response within 24 hours to schedule your free consultation.</p>
             </div>
         </div>
     </section>
+
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
@@ -551,9 +612,9 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin:2.5rem 0;text-align:left;">
                 <div>
                     <h4 style="color:var(--teal);margin-bottom:1rem;font-family:var(--font-heading);font-size:0.95rem;">Contact Info</h4>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">📧 shawn.choo@realstrategy.co</p>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">📞 (619) 320-8319</p>
-                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">📍 San Diego, CA</p>
+                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">shawn.choo@realstrategy.co</p>
+                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">(619) 320-8319</p>
+                    <p style="margin-bottom:0.5rem;font-size:0.9rem;">San Diego, CA</p>
                     <p style="font-size:0.85rem;color:#aaa;">24-Hour Response Guarantee</p>
                 </div>
                 <div>
@@ -600,9 +661,10 @@
         const mobileNav = document.getElementById('mobileNav');
 
         hamburger.addEventListener('click', function() {
+            const isOpen = mobileNav.classList.toggle('open');
             this.classList.toggle('active');
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+            this.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         mobileNav.addEventListener('click', function(e) {
@@ -611,6 +673,7 @@
 
         function closeMobileNav() {
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
             mobileNav.classList.remove('open');
             document.body.style.overflow = '';
         }
@@ -639,7 +702,18 @@
             e.preventDefault();
             const data = { firstName: this.firstName.value.trim(), lastName: this.lastName.value.trim(), email: this.email.value.trim(), phone: this.phone.value.trim(), businessType: this.businessType.value, services: this.services.value, message: this.message.value.trim() };
             const errorEl = document.getElementById('formError');
-            if (!data.firstName || !data.lastName || !data.email) { errorEl.classList.add('visible'); errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
+            const required = [['firstName', data.firstName], ['lastName', data.lastName], ['email', data.email]];
+            let firstInvalid = null;
+            required.forEach(([id, val]) => {
+                const el = document.getElementById(id);
+                if (!val) { el.setAttribute('aria-invalid', 'true'); if (!firstInvalid) firstInvalid = el; }
+                else { el.removeAttribute('aria-invalid'); }
+            });
+            if (firstInvalid) {
+                errorEl.classList.add('visible');
+                firstInvalid.focus();
+                return;
+            }
             errorEl.classList.remove('visible');
             const subject = `Consultation Request — ${data.firstName} ${data.lastName}`;
             const body = ['NEW CONSULTATION REQUEST — REAL STRATEGY TAX & ACCOUNTING','',`Name:     ${data.firstName} ${data.lastName}`,`Email:    ${data.email}`,`Phone:    ${data.phone || 'Not provided'}`,`Industry: ${data.businessType || 'Not specified'}`,`Services: ${data.services || 'Not specified'}`,'','Message:',data.message || 'No additional details provided.','','---',`Submitted: ${new Date().toLocaleString()}`,'Source: realstrategy.co'].join('\n');
