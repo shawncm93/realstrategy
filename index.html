@@ -22,9 +22,7 @@
     <meta name="twitter:title" content="Real Strategy | Tax Planning for Real Estate, Rental and Creator Businesses">
     <meta name="twitter:description" content="San Diego tax firm led by Shawn Choo, EA. Year-round planning and preparation for real estate investors, short-term rental hosts, content creators, and founders.">
     <meta name="twitter:image" content="https://www.realstrategy.co/Headshot.jfif">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@300;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -76,7 +74,7 @@
           "alumniOf": { "@type": "CollegeOrUniversity", "name": "Harvard University" },
           "hasCredential": {
             "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Professional license",
+            "credentialCategory": "Enrolled to practice before the Internal Revenue Service",
             "name": "Enrolled Agent",
             "recognizedBy": { "@type": "GovernmentOrganization", "name": "Internal Revenue Service" }
           },
@@ -97,7 +95,7 @@
           "name": "Real Strategy | Tax Planning for Real Estate, Short-Term Rental and Creator Businesses",
           "isPartOf": { "@id": "https://www.realstrategy.co/#website" },
           "about": { "@id": "https://www.realstrategy.co/#organization" },
-          "dateModified": "2026-10-20",
+          "dateModified": "2026-10-21",
           "inLanguage": "en-US"
         },
         {
@@ -107,7 +105,7 @@
             {
               "@type": "Question",
               "name": "What is an Enrolled Agent, and how is it different from a CPA?",
-              "acceptedAnswer": { "@type": "Answer", "text": "An Enrolled Agent is a tax practitioner licensed by the IRS after passing a three-part exam on individual, business, and representation tax law. EAs can represent any taxpayer before the IRS on any matter. A CPA is a state-licensed accountant whose exam and license cover auditing and financial reporting as well as tax. Shawn Choo is an Enrolled Agent, so the firm's work is tax: planning, preparation, and representation." }
+              "acceptedAnswer": { "@type": "Answer", "text": "An Enrolled Agent is a tax practitioner enrolled to practice before the IRS after passing a three-part exam on individual, business, and representation tax law. EAs can represent any taxpayer before the IRS on any matter. A CPA is a state-licensed accountant whose exam and license cover auditing and financial reporting as well as tax. Shawn Choo is an Enrolled Agent, so the firm's work is tax: planning, preparation, and representation." }
             },
             {
               "@type": "Question",
@@ -127,7 +125,7 @@
             {
               "@type": "Question",
               "name": "How quickly does Real Strategy respond?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Every client message gets a reply within one business day. That is the firm's standing commitment." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Fast. Tax questions usually come up when a decision is about to be made, so the answer comes in time for the decision. Clients write or call directly; there is no ticket queue." }
             },
             {
               "@type": "Question",
@@ -290,7 +288,7 @@
         .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.22s var(--ease-out); }
         .faq-item.open .faq-answer { grid-template-rows: 1fr; }
         .faq-answer-inner { overflow: hidden; min-height: 0; }
-        .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; padding: 0 1.5rem 1.25rem; }
+        .faq-answer-inner p { color: var(--medium-gray); line-height: 1.65; margin: 0; padding: 1.25rem 1.5rem 1.5rem; }
 
         .cta-banner { text-align: center; padding: 2.5rem; background: var(--navy); color: var(--white); border-radius: 10px; max-width: 820px; margin: 3rem auto 0; }
         .cta-banner h3 { margin-bottom: 0.75rem; font-size: var(--text-xl); font-weight: 600; }
@@ -328,6 +326,7 @@
         .footer a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
         .footer a:hover { color: var(--teal); }
         .footer-bottom { border-top: 1px solid #333; padding-top: 1.5rem; font-size: var(--text-md); opacity: 0.7; }
+        .footer-bottom a { text-decoration: underline; margin-left: 0.75rem; }
 
         .sticky-cta { position: fixed; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); right: 1.5rem; background: var(--navy); color: var(--white); padding: 0.85rem 1.5rem; border-radius: 100px; font-family: var(--font-heading); font-weight: 600; font-size: var(--text-md); text-decoration: none; box-shadow: 0 10px 30px rgba(46,49,146,0.35), 0 4px 10px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 0.5rem; opacity: 0; transform: translateY(20px) scale(0.95); transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), background-color 0.2s ease; pointer-events: none; z-index: 900; white-space: nowrap; }
         .sticky-cta.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
@@ -389,7 +388,7 @@
                         (619) 320-8319
                     </a>
                 </div>
-                <div>Replies within one business day. Clients in every state.</div>
+                <div>Fast replies. Clients in every state.</div>
             </div>
         </div>
         <div class="header-main">
@@ -442,7 +441,7 @@
         <div class="container">
             <h1 class="reveal">Your accountant files taxes. We cut them.</h1>
             <p class="lead reveal reveal-delay-1">Real Strategy is a San Diego tax firm led by <a href="#about">Shawn Choo, Enrolled Agent</a>. We plan during the year for real estate investors, Airbnb and Turo hosts, content creators, and founders, then prepare the return that reports those decisions.</p>
-            <p class="sub reveal reveal-delay-2">Fixed fees quoted up front. Every message answered within one business day. Clients in every state.</p>
+            <p class="sub reveal reveal-delay-2">Fixed fees quoted up front. Fast replies. Clients in every state.</p>
             <div class="hero-buttons reveal reveal-delay-2">
                 <a href="#contact" class="btn-primary">Book a free 30-minute call</a>
                 <a href="#clients" class="btn-secondary">See who we work with</a>
@@ -487,7 +486,7 @@
                 <div><h3>One free call</h3><p>Thirty minutes. Bring last year's return and a description of this year. You leave with a view of what can change and a fixed quote if there is a fit.</p></div>
                 <div><h3>Fixed fees</h3><p>The price is set before work starts and does not move unless the scope does. No hourly billing for questions.</p></div>
                 <div><h3>Quarterly projections</h3><p>Each quarter we rerun the year with actual numbers and adjust estimates and decisions. The spring return holds no surprises.</p></div>
-                <div><h3>One business day</h3><p>Every message gets a reply within one business day. Tax questions come up when you are about to sign something, so the answer has to come before you sign.</p></div>
+                <div><h3>Fast replies</h3><p>Tax questions come up when you are about to sign something, so we answer in time for the decision, not after it.</p></div>
             </div>
         </div>
     </section>
@@ -499,15 +498,15 @@
                     <img src="Headshot.jfif" alt="Shawn Choo, Enrolled Agent and Managing Partner of Real Strategy" class="profile-image" width="180" height="180">
                     <h3>Shawn Choo</h3>
                     <div class="profile-title">Managing Partner, EA</div>
-                    <p>Enrolled Agent, licensed by the IRS. Harvard graduate. Based in San Diego.</p>
+                    <p>Enrolled to practice before the IRS. Harvard graduate. Based in San Diego.</p>
                 </div>
                 <div class="about-text reveal reveal-delay-1">
                     <h2 id="about-heading">About Shawn</h2>
-                    <p>Shawn Choo is an Enrolled Agent, the credential the IRS issues to tax practitioners who pass its three-part exam on individual, business, and representation law. It carries unlimited rights to represent taxpayers before the IRS in audits, appeals, and collections.</p>
+                    <p>Shawn Choo is an Enrolled Agent, enrolled to practice before the IRS after passing its three-part exam on individual, business, and representation law. It carries unlimited rights to represent taxpayers before the IRS in audits, appeals, and collections.</p>
                     <p>Before founding Real Strategy, Shawn worked in financial planning and analysis, private equity, and audit. That background is why the firm runs on projections instead of hindsight: a tax return is the output of decisions, and the decisions are where the money is.</p>
                     <p>Real Strategy was built for the clients general-practice firms serve poorly: people whose income comes from rentals, platforms, audiences, or a company they just formed. The firm is based in San Diego and works with clients in every state.</p>
                     <ul>
-                        <li>Enrolled Agent (EA), licensed by the IRS</li>
+                        <li>Enrolled Agent (EA), enrolled to practice before the IRS</li>
                         <li>Harvard University graduate</li>
                         <li>Background in FP&amp;A, private equity, and audit</li>
                     </ul>
@@ -534,11 +533,11 @@
         <div class="container">
             <div class="section-header reveal"><h2 id="faq-heading">Common questions</h2></div>
             <div class="faq-list">
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-1-panel" id="faq-1-btn">What is an Enrolled Agent, and how is it different from a CPA?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-1-panel" role="region" aria-labelledby="faq-1-btn"><div class="faq-answer-inner"><p>An Enrolled Agent is a tax practitioner licensed by the IRS after passing a three-part exam on individual, business, and representation tax law. EAs can represent any taxpayer before the IRS on any matter. A CPA is a state-licensed accountant whose exam and license cover auditing and financial reporting as well as tax. Shawn is an Enrolled Agent, so the firm's work is tax: planning, preparation, and representation.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-1-panel" id="faq-1-btn">What is an Enrolled Agent, and how is it different from a CPA?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-1-panel" role="region" aria-labelledby="faq-1-btn"><div class="faq-answer-inner"><p>An Enrolled Agent is a tax practitioner enrolled to practice before the IRS after passing a three-part exam on individual, business, and representation tax law. EAs can represent any taxpayer before the IRS on any matter. A CPA is a state-licensed accountant whose exam and license cover auditing and financial reporting as well as tax. Shawn is an Enrolled Agent, so the firm's work is tax: planning, preparation, and representation.</p></div></div></div>
                 <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-2-panel" id="faq-2-btn">Who does Real Strategy work with?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-2-panel" role="region" aria-labelledby="faq-2-btn"><div class="faq-answer-inner"><p>Real estate investors and agents, Airbnb, Turo, and other platform-economy operators, content creators with income from multiple platforms, and early-stage founders. The firm is based in San Diego and works with clients in any state.</p></div></div></div>
                 <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-3-panel" id="faq-3-btn">What does year-round tax planning actually involve?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-3-panel" role="region" aria-labelledby="faq-3-btn"><div class="faq-answer-inner"><p>A projection of the current year's tax at least quarterly, estimated payments set from that projection instead of last year's number, and decisions made before December 31 on entity structure, officer salary, retirement contributions, equipment purchases, and rental activity. The return in spring reports choices already made.</p></div></div></div>
                 <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-4-panel" id="faq-4-btn">How does California differ from federal tax law for small businesses and landlords?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-4-panel" role="region" aria-labelledby="faq-4-btn"><div class="faq-answer-inner"><p>California does not allow federal bonus depreciation, does not allow the 20 percent qualified business income deduction, and charges LLCs, S corporations, and corporations an $800 minimum annual tax. We prepare every projection on both federal and California law so the state side is never a surprise.</p></div></div></div>
-                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-5-panel" id="faq-5-btn">How quickly does Real Strategy respond?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-5-panel" role="region" aria-labelledby="faq-5-btn"><div class="faq-answer-inner"><p>Every client message gets a reply within one business day. That is the firm's standing commitment.</p></div></div></div>
+                <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-5-panel" id="faq-5-btn">How quickly does Real Strategy respond?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-5-panel" role="region" aria-labelledby="faq-5-btn"><div class="faq-answer-inner"><p>Fast. Tax questions usually come up when a decision is about to be made, so the answer comes in time for the decision. Clients write or call directly; there is no ticket queue.</p></div></div></div>
                 <div class="faq-item reveal"><button class="faq-question" aria-expanded="false" aria-controls="faq-6-panel" id="faq-6-btn">How is pricing set?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-answer" id="faq-6-panel" role="region" aria-labelledby="faq-6-btn"><div class="faq-answer-inner"><p>Fixed fees quoted before work starts, based on the scope of the engagement. There are no hourly surprises and no charge for the initial call.</p></div></div></div>
             </div>
             <div class="cta-banner reveal"><h3>Not sure if we're the right fit?</h3><p>Book the free call. If we aren't the right firm for your situation, we'll say so and point you somewhere better.</p><a href="#contact" class="btn-primary">Book a free call</a></div>
@@ -567,12 +566,12 @@
                 </div>
                 <div class="form-group"><label for="message">What's going on this year</label><textarea id="message" name="message" rows="4" placeholder="Example: bought a second rental in March, thinking about an S corp, got an IRS notice"></textarea></div>
                 <button type="submit" class="btn-primary" style="width:100%;padding:1rem;">Send request</button>
-                <p class="form-foot-note">You'll hear back within one business day to set a time.</p>
+                <p class="form-foot-note">You'll hear back shortly to set a time.</p>
             </form>
             <div class="form-success" id="formSuccess" role="status" aria-live="polite">
                 <div class="form-success-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg></div>
                 <h4>Request received</h4>
-                <p>Your email app is opening with the message addressed to shawn.choo@realstrategy.co. Send it and you'll hear back within one business day.</p>
+                <p>Your email app is opening with the message addressed to shawn.choo@realstrategy.co. Send it and you'll hear back shortly.</p>
             </div>
         </div>
     </section>
@@ -603,13 +602,13 @@
                 </div>
                 <div class="footer-col">
                     <h4>Shawn Choo, EA</h4>
-                    <p>Enrolled Agent, licensed by the IRS</p>
+                    <p>Enrolled to practice before the IRS</p>
                     <p>Harvard University graduate</p>
                     <p><a href="#about">About Shawn</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Real Strategy LLC. All rights reserved.</p>
+                <p>&copy; 2026 Real Strategy LLC. All rights reserved. <a href="privacy.html">Privacy policy</a></p>
             </div>
         </div>
     </footer>
